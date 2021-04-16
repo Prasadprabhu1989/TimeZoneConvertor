@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSC-cq-JzY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSC-cq-JzY">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -310,6 +310,9 @@
                             <color key="tintColor" red="0.91899514199999999" green="0.93243920800000002" blue="0.95890325310000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addCityTimeZoneClicked:" destination="Dda-gk-4kq" id="q4N-Vm-dro"/>
+                                <segue destination="x7N-kc-ap7" kind="popoverPresentation" identifier="SettingsIdentifier" popoverAnchorBarButtonItem="thH-Og-o2W" id="QHL-uD-VA6">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -329,23 +332,30 @@
                         <outlet property="seperatorLine3View" destination="U57-Hr-jY2" id="ih0-Sp-ebD"/>
                         <outlet property="timeListTableView" destination="AXw-bc-iHs" id="7lR-f1-g6U"/>
                         <outlet property="twetyFourHourStyleLabel" destination="aaF-dp-D2D" id="c8m-Kb-eLM"/>
-                        <segue destination="tpt-hS-n2i" kind="presentation" identifier="showTimeZoneListSegue" id="WoY-j5-1Us"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4O-Hr-zAc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951.875" y="136.26760563380282"/>
+            <point key="canvasLocation" x="1586" y="147"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="S9M-KO-jPB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="SettingsVC" id="x7N-kc-ap7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzK-1X-Aud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2238" y="147"/>
         </scene>
         <!--Add Time Zone View Controller-->
         <scene sceneID="ezu-GX-pY5">
             <objects>
                 <viewController id="tpt-hS-n2i" customClass="AddTimeZoneViewController" customModule="TimeZoneTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aqo-ji-bAM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-6f-z0P">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.1058823529" green="0.30980392159999998" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -362,12 +372,12 @@
                                 </items>
                             </navigationBar>
                             <searchBar contentMode="redraw" barStyle="black" placeholder="Search Location, Time Zone" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-L4-vjr">
-                                <rect key="frame" x="0.0" y="56" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="56"/>
                                 <color key="barTintColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Ga-ro-k5m">
-                                <rect key="frame" x="0.0" y="112" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="468"/>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.27450980392156865" alpha="0.49534460616438358" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -455,7 +465,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmf-tm-oDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="136.60714285714286"/>
+            <point key="canvasLocation" x="546" y="118"/>
         </scene>
     </scenes>
     <resources>

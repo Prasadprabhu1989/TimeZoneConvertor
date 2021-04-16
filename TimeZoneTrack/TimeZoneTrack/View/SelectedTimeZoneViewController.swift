@@ -224,6 +224,18 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingsIdentifier" {
+             guard let settingsVC = segue.destination as? SettingsViewController else { return }
+            settingsVC.hoursStyle = self.hoursStyle
+            settingsVC.completionHandler = { [weak self](hoursStyle) in
+                self?.hoursStyle = hoursStyle!
+               
+//                hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
+                
+                self?.hoursRangeArray = self?.timeZoneHelperModel?.getHoursArray(hoursStyle!) ?? []
+                
+            }
+        }
         guard let addTimeZoneViewController = segue.destination as? AddTimeZoneViewController else { return }
         addTimeZoneViewController.addTimeZoneClosure = { [weak self] timezoneModel in
             guard let self = self else { return }

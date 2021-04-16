@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfY-hj-qoN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="nel-EZ-bwd">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" id="vfY-hj-qoN" customClass="SettingsViewController" customModule="TimeZoneTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qff-KS-PBs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njd-A5-WGe">
+                                <rect key="frame" x="355" y="59" width="51" height="31"/>
+                                <color key="onTintColor" red="0.2131445706" green="0.33830761910000001" blue="0.69000345470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="hoursStyleSwitchValueChanged:" destination="vfY-hj-qoN" eventType="valueChanged" id="TlD-ZT-J8g"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-Hour Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46e-bY-aqA">
+                                <rect key="frame" x="10" y="64" width="105" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Z-hQ-Rzq">
+                                <rect key="frame" x="186" y="130" width="218" height="32"/>
+                                <segments>
+                                    <segment title="Graphite"/>
+                                    <segment title="White"/>
+                                    <segment title="Black"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeTheme:" destination="vfY-hj-qoN" eventType="valueChanged" id="Lmq-VW-IUI"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjn-8W-DM4">
+                                <rect key="frame" x="10" y="135" width="101" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qjn-8W-DM4" firstAttribute="centerY" secondItem="Z3Z-hQ-Rzq" secondAttribute="centerY" id="KaO-TQ-SV5"/>
+                            <constraint firstItem="njd-A5-WGe" firstAttribute="centerY" secondItem="46e-bY-aqA" secondAttribute="centerY" id="NWA-Fv-GFl"/>
+                            <constraint firstItem="EUi-Tm-Kmi" firstAttribute="trailing" secondItem="njd-A5-WGe" secondAttribute="trailing" constant="10" id="Omy-Cc-39b"/>
+                            <constraint firstItem="Z3Z-hQ-Rzq" firstAttribute="trailing" secondItem="njd-A5-WGe" secondAttribute="trailing" id="PDi-FS-AUk"/>
+                            <constraint firstItem="46e-bY-aqA" firstAttribute="top" secondItem="EUi-Tm-Kmi" secondAttribute="top" constant="20" id="RVg-2s-7iG"/>
+                            <constraint firstItem="qjn-8W-DM4" firstAttribute="leading" secondItem="46e-bY-aqA" secondAttribute="leading" id="byM-Jq-xmg"/>
+                            <constraint firstItem="Z3Z-hQ-Rzq" firstAttribute="top" secondItem="njd-A5-WGe" secondAttribute="bottom" constant="40" id="fgQ-cg-Zx9"/>
+                            <constraint firstItem="46e-bY-aqA" firstAttribute="leading" secondItem="EUi-Tm-Kmi" secondAttribute="leading" constant="10" id="ngk-Zd-F1q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EUi-Tm-Kmi"/>
+                    </view>
+                    <connections>
+                        <outlet property="hourStyleSwitch" destination="njd-A5-WGe" id="pdY-dk-ZfL"/>
+                        <outlet property="themeSegment" destination="Z3Z-hQ-Rzq" id="u69-LA-Cfa"/>
+                        <outlet property="twetyFourHourStyleLabel" destination="46e-bY-aqA" id="Qh6-s5-sXK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAD-6e-bQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="125.89285714285714"/>
+        </scene>
+    </scenes>
+</document>

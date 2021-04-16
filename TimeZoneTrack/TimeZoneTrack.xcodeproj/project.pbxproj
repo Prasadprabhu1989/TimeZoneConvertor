@@ -95,6 +95,8 @@
 		59EE8F2D260DB645005E4610 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F2C260DB644005E4610 /* TimeTracker.swift */; };
 		59EE8F2F260DB9A3005E4610 /* AddTimeZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F2E260DB9A3005E4610 /* AddTimeZoneViewController.swift */; };
 		59EE8F31260DBA76005E4610 /* SelectedTimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F30260DBA76005E4610 /* SelectedTimeZoneCell.swift */; };
+		5FEF6E4C2629650000FD310A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEF6E4B262964FF00FD310A /* Settings.storyboard */; };
+		5FEF6E4E262965B300FD310A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF6E4D262965B300FD310A /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +191,8 @@
 		59EE8F2C260DB644005E4610 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		59EE8F2E260DB9A3005E4610 /* AddTimeZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeZoneViewController.swift; sourceTree = "<group>"; };
 		59EE8F30260DBA76005E4610 /* SelectedTimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTimeZoneCell.swift; sourceTree = "<group>"; };
+		5FEF6E4B262964FF00FD310A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		5FEF6E4D262965B300FD310A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +357,7 @@
 				590AF1272615B66D000D5D4D /* ContentViewController.swift */,
 				590AF1222615B4E2000D5D4D /* DateFormatters.swift */,
 				599098912615D600004B9A02 /* HourCell.swift */,
+				5FEF6E4D262965B300FD310A /* SettingsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				59E98B1F260CB361007F3194 /* Main.storyboard */,
+				5FEF6E4B262964FF00FD310A /* Settings.storyboard */,
 				59E98B24260CB364007F3194 /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
@@ -494,6 +500,7 @@
 				59E98B23260CB364007F3194 /* Assets.xcassets in Resources */,
 				59E98B21260CB361007F3194 /* Main.storyboard in Resources */,
 				5995A8C42624AB99006CB456 /* Lato-Italic.ttf in Resources */,
+				5FEF6E4C2629650000FD310A /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +534,7 @@
 				59E98B1E260CB361007F3194 /* SelectedTimeZoneViewController.swift in Sources */,
 				590AF1042615B358000D5D4D /* PagingMenuItemSource.swift in Sources */,
 				590AF0FA2615B358000D5D4D /* InvalidationState.swift in Sources */,
+				5FEF6E4E262965B300FD310A /* SettingsViewController.swift in Sources */,
 				590AF1192615B358000D5D4D /* PageViewManagerDataSource.swift in Sources */,
 				590AF0ED2615B358000D5D4D /* PagingSizeCache.swift in Sources */,
 				59A9F81B261341190021B7A0 /* Extension.swift in Sources */,
