@@ -12,6 +12,7 @@ enum HoursStyle: String {
     case twentyfourHour = "HH:mm"
     case twelveHour = "hh:mm a"
     case onlyHour = "HH"
+    case onlyMinute = "mm"
 }
 
 enum DateDisplayStyle: String {
@@ -21,16 +22,24 @@ enum DateDisplayStyle: String {
 class SelectedTimeZoneViewController: UIViewController {
     
     @IBOutlet weak var timeListTableView: UITableView!
-    @IBOutlet weak var hoursStyleButton: UIButton!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
+    @IBOutlet weak var selectedDateTimeView: UIView!
     @IBOutlet weak var hoursListView: UIView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarView: UIView!
     @IBOutlet weak var hourStyleSwitch: UISwitch!
     @IBOutlet weak var emptyTimeZoneView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var monthNameView: UIView!
+    @IBOutlet weak var separatorLine1View: UIView!
+    @IBOutlet weak var seperatorLine2View: UIView!
+    @IBOutlet weak var twetyFourHourStyleLabel: UILabel!
+    @IBOutlet weak var seperatorLine3View: UIView!
+    @IBOutlet weak var emptyTimeZoneLabel: UILabel!
     
-    var collectionView: UICollectionView!
     let calendarViewController = CalendarViewController()
+    
+    let theme = ThemeManager.currentTheme()
     
     var timeZoneArray: [SelectedTimeZone] = [] {
         didSet {
@@ -50,7 +59,7 @@ class SelectedTimeZoneViewController: UIViewController {
     let flowLayout = PaggedFlowLayout()
     var hoursRangeArray: [String] = [] {
         didSet {
-            collectionView.reloadData()
+            reloadHoursCollection()
             timeListTableView.reloadData()
         }
     }
@@ -75,22 +84,17 @@ class SelectedTimeZoneViewController: UIViewController {
     var offsetHour: Int = 0
     var offsetDay: Int = 0
     var dateCalendar: Date?
+    var offfsetMonth: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timeListTableView.delegate = self
-        timeListTableView.dataSource = self
-        timeListTableView.isEditing = true
-        timeListTableView.estimatedRowHeight = 150
-        timeListTableView.rowHeight = UITableView.automaticDimension
-        timeListTableView.tableFooterView = UIView()
-        //        handleHourFormat()
+        applyThemeStyle()
+        setUpTableView()
         addLogoToNavigationBarItem()
-        
         addCalendarChildViewController()
         setUpCollectionView()
-        
+        setSelectedDateTimeViewStyle()
         getInitalCalendarDate()
     }
     
@@ -99,22 +103,47 @@ class SelectedTimeZoneViewController: UIViewController {
         dateCalendar = DateFormatters.yyyyMMddDateFormatter.date(from: calendarDateString)
     }
     
+    func applyThemeStyle() {
+        self.view.backgroundColor = theme.backgroundColor
+        timeListTableView.backgroundColor = theme.tableViewBackGroundColor
+        selectedDateTimeView.backgroundColor = theme.selectedRangeColor
+        hoursListView.backgroundColor = theme.backgroundColor
+        calendarView.backgroundColor = theme.backgroundColor
+        collectionView.backgroundColor = theme.hoursRangeBackgroundColor
+        monthNameView.backgroundColor = theme.backgroundColor
+        separatorLine1View.backgroundColor = theme.seperatorViewColor
+        seperatorLine2View.backgroundColor = theme.seperatorViewColor
+        seperatorLine3View.backgroundColor = theme.seperatorViewColor
+        emptyTimeZoneView.backgroundColor = theme.backgroundColor
+        monthLabel.textColor = theme.titleTextColor
+        twetyFourHourStyleLabel.textColor = theme.titleTextColor
+        emptyTimeZoneLabel.textColor = theme.titleTextColor
+        
+    }
+    
+    func setUpTableView() {
+        timeListTableView.delegate = self
+        timeListTableView.dataSource = self
+        timeListTableView.isEditing = true
+        timeListTableView.estimatedRowHeight = 150
+        timeListTableView.rowHeight = UITableView.automaticDimension
+        timeListTableView.tableFooterView = UIView()
+        timeListTableView.separatorInset = .zero
+        timeListTableView.separatorColor = theme.seperatorViewColor
+    }
+    
     func setUpCollectionView() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .systemGroupedBackground
+        collectionView.collectionViewLayout = flowLayout
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.decelerationRate = .fast
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.register(HourCell.self, forCellWithReuseIdentifier: "HourCell")
-        
-        hoursListView.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: hoursListView.topAnchor).isActive = true
-        collectionView.leadingAnchor.constraint(equalTo: hoursListView.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: hoursListView.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: hoursListView.bottomAnchor).isActive = true
+    }
+    
+    func setSelectedDateTimeViewStyle() {
+        selectedDateTimeView.addViewBorder(borderColor: theme.selectedRangeBorderColor.cgColor, borderWith: 2.0)
     }
     
     func setCurrentTime() {
@@ -123,7 +152,6 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     func addCalendarChildViewController() {
-        //        let calendarViewController = CalendarViewController()
         calendarViewController.dateUpdateDelegate = self
         
         // Add the paging view controller as a child view
@@ -169,8 +197,10 @@ class SelectedTimeZoneViewController: UIViewController {
     @IBAction func hoursStyleSwitchValueChanged(_ sender: UISwitch) {
         if sender.isOn {
             hoursStyle = .twentyfourHour
+            twetyFourHourStyleLabel.textColor = theme.titleTextColor
         } else {
             hoursStyle = .twelveHour
+            twetyFourHourStyleLabel.textColor = theme.subtitleTextColor
         }
         hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
     }
@@ -212,6 +242,14 @@ class SelectedTimeZoneViewController: UIViewController {
         collectionView.reloadData()
         collectionView.scrollToItem(at: IndexPath.init(item: selectedHourIndex, section: 0), at: .centeredHorizontally, animated: true)
     }
+    
+    func reArrangeOrder(fromIndex: Int, toIndex: Int) {
+
+        timeZoneHelperModel?.reArrangeOrder(fromIndex, toIndex, timeZoneArray)
+        let movedObject = timeZoneArray[fromIndex]
+        timeZoneArray.remove(at: fromIndex)
+        timeZoneArray.insert(movedObject, at: toIndex)
+    }
 }
 
 extension SelectedTimeZoneViewController: UITableViewDataSource {
@@ -246,14 +284,15 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
         
         if sourceIndexPath == destinationIndexPath { return }
         
-        let indexFrom = sourceIndexPath.row
-        let indexTo   = destinationIndexPath.row
+//        let indexFrom = sourceIndexPath.row
+//        let indexTo   = destinationIndexPath.row
         
-        timeZoneHelperModel?.reArrangeOrder(indexFrom, indexTo, timeZoneArray)
-        
-        let movedObject = timeZoneArray[sourceIndexPath.row]
-        timeZoneArray.remove(at: sourceIndexPath.row)
-        timeZoneArray.insert(movedObject, at: destinationIndexPath.row)
+        reArrangeOrder(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
+//        timeZoneHelperModel?.reArrangeOrder(indexFrom, indexTo, timeZoneArray)
+//
+//        let movedObject = timeZoneArray[sourceIndexPath.row]
+//        timeZoneArray.remove(at: sourceIndexPath.row)
+//        timeZoneArray.insert(movedObject, at: desinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -267,6 +306,11 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
             }
             tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = theme.backgroundColor
+        cell.reorderControlImageView?.tint(color: theme.seperatorViewColor)
     }
     
 }
@@ -284,6 +328,17 @@ extension SelectedTimeZoneViewController: DateSelectedDelegate {
     
 }
 
+extension SelectedTimeZoneViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let centerCellIndexPath: IndexPath  = collectionView.centerCellIndexPath {
+          print(centerCellIndexPath)
+          selectedHourIndex = centerCellIndexPath.row
+          offsetHour = centerCellIndexPath.row - selectedHourIndexOffset
+          reloadHoursCollection()
+          timeListTableView.reloadData()
+        }
+    }
+}
 
 extension SelectedTimeZoneViewController: UITableViewDelegate {
     
@@ -325,7 +380,7 @@ extension SelectedTimeZoneViewController: RefreshViewOnHomeTimeZoneChangeDelegat
         fetchSelectedTimeZone()
         fetchSelectedHourFromCurrentDateTime()
         reloadHoursCollection()
-        
+        monthYearString = DateFormatters.shortDateFormatter.string(from: currentDateTime)
     }
 }
 

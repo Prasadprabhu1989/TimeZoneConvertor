@@ -349,6 +349,7 @@ open class PagingViewController:
     self.pageViewController = PageViewController(options: options)
     self.collectionViewLayout = createLayout(layout: options.menuLayoutClass.self)
     self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    collectionView.backgroundColor = .clear
     super.init(coder: coder)
     collectionView.delegate = self
     configurePagingController()
@@ -579,6 +580,16 @@ open class PagingViewController:
       pageViewController.scrollView.isScrollEnabled = false
     }
   }
+    
+    private func selectCenteredCell() {
+        if let centerCellIndexPath: IndexPath  = collectionView.centerCellIndexPath {
+            print(centerCellIndexPath)
+            let pagingItem = pagingController.visibleItems.pagingItem(for: centerCellIndexPath)
+             delegate?.pagingViewController(self, didSelectItem: pagingItem)
+             pagingController.select(indexPath: centerCellIndexPath, animated: true)
+            collectionView.scrollToItem(at: centerCellIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
   
   // MARK: UIScrollViewDelegate
   
@@ -589,37 +600,35 @@ open class PagingViewController:
   open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     return
   }
-  
+
   open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    if velocity.x == 0 {
+        selectCenteredCell()
+    }
     return
   }
-  
+
   open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     return
   }
-  
+
   open func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
     return
   }
-  
+
   open func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
     return
   }
   
   open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//    if let centerCellIndexPath: IndexPath  = collectionView.centerCellIndexPath {
-//        print(centerCellIndexPath)
-//        let pagingItem = pagingController.visibleItems.pagingItem(for: centerCellIndexPath)
-//         delegate?.pagingViewController(self, didSelectItem: pagingItem)
-//         pagingController.select(indexPath: centerCellIndexPath, animated: true)
-//    }
+      selectCenteredCell()
 //    let center = self.view.convert(self.collectionView.center, to: self.collectionView)
 //    let index = collectionView.indexPathForItem(at: center)
 //    print(index)
 ////            let pagingItem = pagingController.visibleItems.pagingItem(for: index)
 ////             delegate?.pagingViewController(self, didSelectItem: pagingItem)
 ////             pagingController.select(indexPath: centerCellIndexPath, animated: true)
-     return
+//     return
   }
   
   // MARK: UICollectionViewDelegate

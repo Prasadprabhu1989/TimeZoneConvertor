@@ -33,7 +33,7 @@ class TimeZoneHelperModel {
         let timezoneModelArray = TimeZone.knownTimeZoneIdentifiers.sorted().map { (timezone) -> TimeZoneModel in
             let cityName = timezone.components(separatedBy: "/").last ?? timezone
             let cityNameUpdated = cityName.replacingOccurrences(of: "_", with: " ")
-
+            
             let timezoneModal = TimeZoneModel.init(context: context)
             timezoneModal.setValue(cityNameUpdated, forKey: "name")
             timezoneModal.setValue(timezone, forKey: "timeZone")
@@ -48,7 +48,7 @@ class TimeZoneHelperModel {
     
     
     func setDefaultTimezone(_ timeZoneModelArray: [TimeZoneModel]) {
-
+        
         let context = coredataManager.mainContext
         var isHomeFirstModel = true
         var orderNo = 0
@@ -56,7 +56,7 @@ class TimeZoneHelperModel {
         
         filteredTimeZone.forEach { (timezoneModel) in
             timezoneModel.isSelected = true
-        
+            
             let selectedTimezone = SelectedTimeZone.init(context: context)
             selectedTimezone.setValue(timezoneModel.id, forKey: "id")
             selectedTimezone.setValue(timezoneModel.name, forKey: "name")
@@ -66,9 +66,9 @@ class TimeZoneHelperModel {
             isHomeFirstModel = false
             orderNo += 1
         }
-
+        
         coredataManager.saveContext()
-
+        
     }
     
     func fetchAllNonSelectedTimeZone() -> [TimeZoneModel] {
@@ -80,10 +80,10 @@ class TimeZoneHelperModel {
         var nonSeletedTimeZone = [TimeZoneModel]()
         do {
             nonSeletedTimeZone = try coredataManager.mainContext.fetch(fetchRequest)
-//            print("\(nonSeletedTimeZone.count) Non SelectedTimezone")
+            //            print("\(nonSeletedTimeZone.count) Non SelectedTimezone")
             
         } catch {
-//            print("Fetch failed")
+            //            print("Fetch failed")
         }
         return nonSeletedTimeZone
     }
@@ -98,10 +98,10 @@ class TimeZoneHelperModel {
         var selectedTimeZone = [SelectedTimeZone]()
         do {
             selectedTimeZone = try coredataManager.mainContext.fetch(fetchRequest)
-//            print("\(selectedTimeZone.count) selectedTimezone")
+            //            print("\(selectedTimeZone.count) selectedTimezone")
             
         } catch {
-//            print("Fetch failed")
+            //            print("Fetch failed")
         }
         return selectedTimeZone
     }
@@ -109,7 +109,7 @@ class TimeZoneHelperModel {
     func updateSelectedTimeZone(_ timeZoneModel: TimeZoneModel, orderNo: Int) {
         
         let context = coredataManager.mainContext
-//        print(orderNo)
+        //        print(orderNo)
         let selectedTimezone = SelectedTimeZone.init(context: context)
         selectedTimezone.setValue(timeZoneModel.id, forKey: "id")
         selectedTimezone.setValue(timeZoneModel.name, forKey: "name")
@@ -125,8 +125,8 @@ class TimeZoneHelperModel {
     }
     
     func deleteSelectedTimeZone(_ indexPath: Int, _ listOfTimeZone: [SelectedTimeZone], _ timezoneModel: SelectedTimeZone) {
-       for timeZone in listOfTimeZone {
-//            print(timeZone)
+        for timeZone in listOfTimeZone {
+            //            print(timeZone)
             if timeZone.orderNo < indexPath {
             } else if timeZone.orderNo > indexPath {
                 timeZone.orderNo -= 1
@@ -152,7 +152,7 @@ class TimeZoneHelperModel {
                 timezone.isSelected = false
             }
         } catch {
-//            print("Fetch failed")
+            //            print("Fetch failed")
         }
         coredataManager.saveContext()
     }
@@ -161,33 +161,33 @@ class TimeZoneHelperModel {
         for timeZone in listOfTimeZone {
             // 1
             if sourceIndex > destinationIndex {
-            
+                
                 if sourceIndex < timeZone.orderNo {
-//                    print(timeZone.cityName ?? "")
+                    //                    print(timeZone.cityName ?? "")
                     continue
                 }
                 
                 if timeZone.orderNo < destinationIndex {
-//                    print(timeZone.cityName ?? "")
+                    //                    print(timeZone.cityName ?? "")
                     continue
                 }
             }
             
             // 2
             if sourceIndex < destinationIndex {
-               
+                
                 if sourceIndex > timeZone.orderNo {
-//                    print(timeZone.cityName ?? "")
+                    //                    print(timeZone.cityName ?? "")
                     continue
                 }
                 
                 if destinationIndex < timeZone.orderNo {
-//                    print(timeZone.cityName ?? "")
+                    //                    print(timeZone.cityName ?? "")
                     continue
                 }
             }
             
-//            let tmp = timeZone.orderNo
+            //            let tmp = timeZone.orderNo
             
             if timeZone.orderNo < sourceIndex {
                 timeZone.orderNo += 1
@@ -197,7 +197,7 @@ class TimeZoneHelperModel {
                 timeZone.orderNo = Int64(destinationIndex)
             }
             
-//            print(timeZone.cityName, tmp, timeZone.orderNo)
+            //            print(timeZone.cityName, tmp, timeZone.orderNo)
         }
         coredataManager.saveContext()
     }
@@ -218,15 +218,15 @@ class TimeZoneHelperModel {
     }
     
     func fetchCurrentHomeTimeZone() -> SelectedTimeZone? {
-       return fetchSelectedTimeZone("homeTimeZone == true").first
+        return fetchSelectedTimeZone("homeTimeZone == true").first
     }
     
     func getHoursArray(_ hoursStyle: HoursStyle) -> [String] {
         if hoursStyle == .twelveHour {
-            return ["12:00 12:59 AM", "01:00 01:59 AM", "02:00 02:59 AM", "03:00 03:59 AM", "04:00 04:59 AM", "05:00 05:59 AM", "06:00 06:59 AM", "07:00 07:59 AM", "08:00 08:59 AM", "09:00 09:59 AM", "10:00 10:59 AM", "11:00 11:59 AM", "12:00 12:59 PM", "01:00 01:59 PM", "02:00 02:59 PM", "03:00 03:59 PM", "04:00 04:59 PM", "05:00 05:59 PM", "06:00 06:59 PM", "07:00 07:59 PM", "08:00 08:59 PM", "09:00 09:59 PM", "10:00 10:59 PM", "11:00 11:59 PM"]
+            return ["12 AM","12:30 AM", "1 AM", "1:30 AM","2 AM","2:30 AM", "3 AM", "3:30 AM", "4 AM", "4:30 AM", "5 AM", "5:30 AM", "6 AM", "6:30 AM", "7 AM", "7:30 AM", "8 AM", "8:30 AM","9 AM", "9:30 AM","10 AM", "10:30 AM","11 AM", "11:30 AM","12 PM","12:30 PM", "1 PM", "1:30 PM","2 PM", "2:30 PM","3 PM","3:30 PM", "4 PM","4:30 PM", "5 PM","5:30 PM", "6 PM","6:30 PM", "7 PM", "7:30 PM", "8 PM", "8:30 PM","9 PM", "9:30 PM","10 PM", "10:30 PM","11 PM","11:30 PM"]
         } else {
-            return ["00:00 00:59", "01:00 01:59", "02:00 02:59", "03:00 03:59", "04:00 04:59", "05:00 05:59", "06:00 06:59", "07:00 07:59", "08:00 08:59", "09:00 09:59", "10:00 10:59", "11:00 11:59", "12:00 12:59", "13:00 13:59", "14:00 14:59",
-            "15:00 15:59", "16:00 16:59", "17:00 17:59", "18:00 18:59", "19:00 19:59", "20:00 20:59", "21:00 21:59", "22:00 22:59", "23:00 23:59"]
+            return ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30","10:00", "10:30", "11:00", "11:30", "12:00", "12:30","13:00", "13:30", "14:00","14:30",
+                    "15:00", "15:30", "16:00","16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",]
         }
     }
     
@@ -242,14 +242,45 @@ class TimeZoneHelperModel {
         return formatter.string(from: date)
     }
     
+    func getDay(date: Date, timeZone: TimeZone) -> DayType{
+        
+        let selectedHour = set(from: date, format: HoursStyle.onlyHour.rawValue, timeZone: timeZone)
+        let hour = Int(selectedHour)!
+    
+        var day = DayType.Night
+        if hour >= 5 && hour < 12
+        {
+            day = DayType.Morning
+        }
+        else if hour >= 12 && hour < 17
+        {
+            day = DayType.Noon
+        }
+        else if hour >= 17 && hour < 20
+        {
+            day = DayType.Evening
+        }
+        return day
+    }
+    
     func getSelectedHourIndex(_ date: Date) -> Int {
         guard let homeTimeZone = fetchCurrentHomeTimeZone(),
             let timezoneString = homeTimeZone.timeZone,
             let timezone = TimeZone(identifier: timezoneString) else { return -1 }
-            
-        let selectedHour = set(from: date, format: HoursStyle.onlyHour.rawValue, timeZone: timezone)
         
-        return Int(selectedHour) ?? -1
+        let selectedHour = set(from: date, format: HoursStyle.onlyHour.rawValue, timeZone: timezone)
+        let dateCeild = date.nearestHour() ?? date
+        let minute = set(from: dateCeild, format: HoursStyle.onlyMinute.rawValue, timeZone: timezone)
+        let minuteIndex = (Int(minute) ?? 0)/30
+        let selectedIndex = ((Int(selectedHour) ?? 0) * 2) + minuteIndex
+        return selectedIndex
     }
+    
+}
 
+enum DayType{
+    case Morning
+    case Noon
+    case Evening
+    case Night
 }

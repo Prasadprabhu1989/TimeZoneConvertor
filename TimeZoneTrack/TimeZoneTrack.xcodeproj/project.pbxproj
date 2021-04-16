@@ -72,9 +72,16 @@
 		590AF1232615B4E2000D5D4D /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF1222615B4E2000D5D4D /* DateFormatters.swift */; };
 		590AF1252615B4F7000D5D4D /* CalendarPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF1242615B4F7000D5D4D /* CalendarPagingCell.swift */; };
 		590AF1292615B66D000D5D4D /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF1272615B66D000D5D4D /* ContentViewController.swift */; };
+		594D2029262598FC00F23B57 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594D2028262598FC00F23B57 /* ThemeManager.swift */; };
 		59620221260DE8DD00916F8E /* TimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59620220260DE8DD00916F8E /* TimeZoneCell.swift */; };
 		599098902615D59C004B9A02 /* PageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990988F2615D59C004B9A02 /* PageFlowLayout.swift */; };
 		599098922615D600004B9A02 /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599098912615D600004B9A02 /* HourCell.swift */; };
+		5995A8C42624AB99006CB456 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BE2624AB99006CB456 /* Lato-Italic.ttf */; };
+		5995A8C52624ABDE006CB456 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BA2624AB99006CB456 /* Lato-Bold.ttf */; };
+		5995A8C62624ABDE006CB456 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BC2624AB99006CB456 /* Lato-Light.ttf */; };
+		5995A8C72624ABDE006CB456 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BB2624AB99006CB456 /* Lato-Regular.ttf */; };
+		5995A8C82624ABDE006CB456 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BD2624AB99006CB456 /* Lato-Semibold.ttf */; };
+		5995A8C92624ABDE006CB456 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8B92624AB99006CB456 /* Lato-Thin.ttf */; };
 		59A9F81B261341190021B7A0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9F81A261341190021B7A0 /* Extension.swift */; };
 		59E98B1A260CB361007F3194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E98B19260CB361007F3194 /* AppDelegate.swift */; };
 		59E98B1C260CB361007F3194 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E98B1B260CB361007F3194 /* SceneDelegate.swift */; };
@@ -157,9 +164,16 @@
 		590AF1222615B4E2000D5D4D /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		590AF1242615B4F7000D5D4D /* CalendarPagingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPagingCell.swift; sourceTree = "<group>"; };
 		590AF1272615B66D000D5D4D /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		594D2028262598FC00F23B57 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		59620220260DE8DD00916F8E /* TimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneCell.swift; sourceTree = "<group>"; };
 		5990988F2615D59C004B9A02 /* PageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFlowLayout.swift; sourceTree = "<group>"; };
 		599098912615D600004B9A02 /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
+		5995A8B92624AB99006CB456 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		5995A8BA2624AB99006CB456 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		5995A8BB2624AB99006CB456 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		5995A8BC2624AB99006CB456 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		5995A8BD2624AB99006CB456 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		5995A8BE2624AB99006CB456 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
 		59A9F81A261341190021B7A0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		59E98B16260CB361007F3194 /* TimeZoneTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeZoneTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E98B19260CB361007F3194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +319,19 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		5921144D262482D0001900C6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5995A8BA2624AB99006CB456 /* Lato-Bold.ttf */,
+				5995A8BE2624AB99006CB456 /* Lato-Italic.ttf */,
+				5995A8BC2624AB99006CB456 /* Lato-Light.ttf */,
+				5995A8BB2624AB99006CB456 /* Lato-Regular.ttf */,
+				5995A8BD2624AB99006CB456 /* Lato-Semibold.ttf */,
+				5995A8B92624AB99006CB456 /* Lato-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		59B15A6E260E12CC00A8A1E9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +364,7 @@
 				59E98B30260CB434007F3194 /* TimeZoneHelperModel.swift */,
 				59A9F81A261341190021B7A0 /* Extension.swift */,
 				5990988F2615D59C004B9A02 /* PageFlowLayout.swift */,
+				594D2028262598FC00F23B57 /* ThemeManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -353,6 +381,7 @@
 		59B15A73260E135900A8A1E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5921144D262482D0001900C6 /* Font */,
 				59B15A74260E136600A8A1E9 /* Assests */,
 				59B15A72260E133B00A8A1E9 /* StoryBoard */,
 				590AF09B2615B337000D5D4D /* External */,
@@ -456,9 +485,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5995A8C52624ABDE006CB456 /* Lato-Bold.ttf in Resources */,
+				5995A8C62624ABDE006CB456 /* Lato-Light.ttf in Resources */,
+				5995A8C72624ABDE006CB456 /* Lato-Regular.ttf in Resources */,
+				5995A8C82624ABDE006CB456 /* Lato-Semibold.ttf in Resources */,
+				5995A8C92624ABDE006CB456 /* Lato-Thin.ttf in Resources */,
 				59E98B26260CB364007F3194 /* LaunchScreen.storyboard in Resources */,
 				59E98B23260CB364007F3194 /* Assets.xcassets in Resources */,
 				59E98B21260CB361007F3194 /* Main.storyboard in Resources */,
+				5995A8C42624AB99006CB456 /* Lato-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +508,7 @@
 				590AF1012615B358000D5D4D /* PagingDirection.swift in Sources */,
 				590AF0F72615B358000D5D4D /* PagingMenuInteraction.swift in Sources */,
 				590AF0E52615B358000D5D4D /* PagingIndicatorView.swift in Sources */,
+				594D2029262598FC00F23B57 /* ThemeManager.swift in Sources */,
 				590AF1182615B358000D5D4D /* PageViewManagerDelegate.swift in Sources */,
 				590AF10B2615B358000D5D4D /* PagingItems.swift in Sources */,
 				590AF0E82615B358000D5D4D /* PagingIndicatorLayoutAttributes.swift in Sources */,

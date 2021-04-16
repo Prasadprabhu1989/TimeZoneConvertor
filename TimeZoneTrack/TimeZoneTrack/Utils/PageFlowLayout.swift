@@ -14,9 +14,9 @@ class PaggedFlowLayout: UICollectionViewFlowLayout {
         super.init()
 
         scrollDirection = .horizontal
-        minimumLineSpacing = 5
+        minimumLineSpacing = 0
         minimumInteritemSpacing = 0
-        sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -30,7 +30,7 @@ class PaggedFlowLayout: UICollectionViewFlowLayout {
 
         // itemSize
         let itemHeight = collectionView.bounds.height - sectionInset.top - sectionInset.bottom
-        itemSize = CGSize(width: itemHeight, height: itemHeight)
+        itemSize = CGSize(width: 51, height: itemHeight)
 
         // horizontal insets
         let horizontalInsets = (collectionView.bounds.width - itemSize.width) / 2

@@ -2,7 +2,7 @@
 //  HourCell.swift
 //  TimeZoneTrack
 //
-//  Created by Nithin on 01/04/21.
+//  Created by Anantha on 01/04/21.
 //  Copyright © 2021 AK. All rights reserved.
 //
 
@@ -19,8 +19,8 @@ class HourCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont(name: "Futura Medium", size: 12.0)
-        label.textColor = UIColor.gray
+        label.textColor = UIColor.white
+        //label.font = UIFont(name: "Lato-Regular", size: 11.0)
         label.numberOfLines = 0
         return label
     }()
@@ -34,7 +34,7 @@ class HourCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .clear //UIColor(red: 234/255, green: 238/255, blue: 245/255, alpha: 1.0)//.white
         contentView.addSubview(titleLabel)
         setUpConstraint()
     }
@@ -44,21 +44,14 @@ class HourCell: UICollectionViewCell {
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-    
-//        bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-//        bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-//        bottomView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-//        bottomView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     
     func updateUIWith(_ hoursText: String, _ isSelected: Bool) {
         titleLabel.text = hoursText
         if isSelected {
-            contentView.backgroundColor = UIColor.init(red: 231.0/255.0, green: 240.0/255.0, blue: 247.0/255.0, alpha: 1.0)
-            //UIColor.init(red: 42.0/255.0, green: 125.0/255.0, blue: 233.0/255.0, alpha: 1.0)
-            //
+            titleLabel.font = UIFont(name: "Lato-Bold", size: 11.0) //UIFont(name: "Lato-Regular", size: 11.0) ??
         } else {
-            contentView.backgroundColor = .white
+            titleLabel.font = UIFont(name: "Lato-Semibold", size: 11.0) //?? UIFont(name: "Lato-Regular", size: 11.0)
         }
     }
     

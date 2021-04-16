@@ -42,9 +42,8 @@ class CalendarViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    
     pagingViewController.register(CalendarPagingCell.self, for: CalendarItem.self)
-    pagingViewController.menuItemSize = .fixed(width: 48, height: 58)
+    pagingViewController.menuItemSize = .fixed(width: 51, height: 59)
 //    pagingViewController.textColor = UIColor.gray
     pagingViewController.delegate = self
 

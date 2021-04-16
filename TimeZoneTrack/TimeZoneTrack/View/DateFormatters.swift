@@ -12,6 +12,7 @@ struct DateFormatters {
    static var yyyyMMddDateFormatter: DateFormatter = {
       let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
     //    dateFormatter.dateStyle = .short
     return dateFormatter
    }()
@@ -34,5 +35,18 @@ struct DateFormatters {
       dateFormatter.timeZone = TimeZone.autoupdatingCurrent
       return dateFormatter
     }()
+    
+    static var twelveHourFormatter: DateFormatter = {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "hh:mm a"
+         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+         return dateFormatter
+     }()
   
+    static var twetyFourHourFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        return dateFormatter
+    }()
 }

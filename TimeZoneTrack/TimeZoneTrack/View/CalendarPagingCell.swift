@@ -14,13 +14,11 @@ class CalendarPagingCell: PagingCell {
   
   lazy var dateLabel: UILabel = {
     let dateLabel = UILabel(frame: .zero)
-//    dateLabel.font = UIFont.systemFont(ofSize: 20)
     return dateLabel
   }()
   
   lazy var weekdayLabel: UILabel = {
     let weekdayLabel = UILabel(frame: .zero)
-//    weekdayLabel.font = UIFont.systemFont(ofSize: 12)
     return weekdayLabel
   }()
   
@@ -38,13 +36,13 @@ class CalendarPagingCell: PagingCell {
     super.layoutSubviews()
     let insets = UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
     
-    dateLabel.frame = CGRect(
+    weekdayLabel.frame = CGRect(
       x: 2,
       y: insets.top,
       width: contentView.bounds.width-4,
       height: contentView.bounds.midY - insets.top)
     
-    weekdayLabel.frame = CGRect(
+    dateLabel.frame = CGRect(
       x: 2,
       y: contentView.bounds.midY,
       width: contentView.bounds.width-4,
@@ -52,13 +50,11 @@ class CalendarPagingCell: PagingCell {
   }
   
   fileprivate func configure() {
-    weekdayLabel.backgroundColor = .white
+    weekdayLabel.backgroundColor = .clear
     weekdayLabel.textAlignment = .center
-    dateLabel.backgroundColor = .white
+    dateLabel.backgroundColor = .clear
     dateLabel.textAlignment = .center
-    contentView.backgroundColor = .white
-    weekdayLabel.backgroundColor = .white
-    dateLabel.backgroundColor = .white
+    contentView.backgroundColor = .clear
     addSubview(weekdayLabel)
     addSubview(dateLabel)
   }
@@ -66,24 +62,15 @@ class CalendarPagingCell: PagingCell {
   fileprivate func updateSelectedState(selected: Bool) {
     guard let options = options else { return }
     if selected {
-      dateLabel.textColor = options.selectedTextColor
-      weekdayLabel.textColor = options.selectedTextColor
+      dateLabel.textColor = options.textColor
+      weekdayLabel.textColor = options.textColor
         dateLabel.font = options.selectedFont
         weekdayLabel.font = options.selectedFont
-//        contentView.layer.borderWidth = 2
-//        contentView.layer.borderColor = UIColor.white.cgColor
-        contentView.backgroundColor = UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
-        weekdayLabel.backgroundColor = UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
-        dateLabel.backgroundColor = UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
     } else {
       dateLabel.textColor = options.textColor
       weekdayLabel.textColor = options.textColor
         dateLabel.font = options.font
         weekdayLabel.font = options.font
-//        contentView.layer.borderWidth = 0
-        contentView.backgroundColor = UIColor(red: 234/255, green: 238/255, blue: 245/255, alpha: 1.0)
-        weekdayLabel.backgroundColor = UIColor(red: 234/255, green: 238/255, blue: 245/255, alpha: 1.0)
-        dateLabel.backgroundColor = UIColor(red: 234/255, green: 238/255, blue: 245/255, alpha: 1.0)
     }
   }
   
