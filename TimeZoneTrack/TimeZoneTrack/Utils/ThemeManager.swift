@@ -12,7 +12,7 @@ import Foundation
 
 enum Theme: Int {
     
-    case theme1, theme2, theme3, theme4
+    case theme1, theme2, theme3, theme4,white, black
     
     var navigationBarTint: UIColor {
         switch self {
@@ -24,7 +24,12 @@ enum Theme: Int {
             return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
         case .theme4:
             return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
+        case .white:
+            return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
+            case .black:
+                   return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
         }
+       
     }
     
     var barStyle: UIBarStyle {
@@ -36,6 +41,10 @@ enum Theme: Int {
         case .theme3:
             return .default
         case .theme4:
+            return .default
+        case .white:
+            return .default
+        case .black:
             return .default
         }
     }
@@ -54,8 +63,29 @@ enum Theme: Int {
             return UIColor(red: 49/255, green: 44/255, blue: 81/255, alpha: 1.0)
         case .theme4:
             return UIColor(red: 42/255, green: 45/255, blue: 73/255, alpha: 1.0)
+        case .white:
+            return .white
+        case .black:
+            return .black
         }
     }
+    var calendarBackgroundColor: UIColor {
+           switch self {
+           case .theme1:
+               return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+           case .theme2:
+               return UIColor(red: 19/255, green: 25/255, blue: 50/255, alpha: 1.0)
+           case .theme3:
+               return UIColor(red: 49/255, green: 44/255, blue: 81/255, alpha: 1.0)
+           case .theme4:
+               return UIColor(red: 42/255, green: 45/255, blue: 73/255, alpha: 1.0)
+           case .white:
+                return UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+           case .black:
+              return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+        }
+       }
+    
     
 //    var calendarBackgroundColor: UIColor {
 //        switch self {
@@ -81,6 +111,10 @@ enum Theme: Int {
             return UIColor(red: 72/255, green: 66/255, blue: 108/255, alpha: 1.0)
         case .theme4:
             return UIColor(red: 43/255, green: 79/255, blue: 96/255, alpha: 1.0)
+        case .white:
+            return UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+            case .black:
+            return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
         }
     }
     
@@ -94,7 +128,12 @@ enum Theme: Int {
             return UIColor.darkGray
         case .theme4:
             return UIColor.darkGray
+        case .white:
+            return .black
+        case .black:
+            return .white
         }
+        
     }
     
     var tableViewBackGroundColor: UIColor {
@@ -107,6 +146,10 @@ enum Theme: Int {
             return UIColor(red: 49/255, green: 44/255, blue: 81/255, alpha: 0.5)
         case .theme4:
             return UIColor(red: 82/255, green: 52/255, blue: 73/255, alpha: 0.5)
+        case .white:
+            return .white
+        case .black:
+            return .black
         }
     }
     
@@ -120,6 +163,10 @@ enum Theme: Int {
             return UIColor.white
         case .theme4:
             return UIColor.white
+        case .white:
+            return .black
+        case .black:
+            return .white
         }
     }
     
@@ -133,7 +180,12 @@ enum Theme: Int {
             return UIColor.lightGray
         case .theme4:
             return UIColor.lightGray
+        case .white:
+            return .black
+        case .black:
+            return .white
         }
+        
     }
     
     var selectedRangeColor: UIColor {
@@ -148,9 +200,46 @@ enum Theme: Int {
             return UIColor(red: 77/255, green: 187/255, blue: 201/255, alpha: 0.4)
         case .theme4:
             return UIColor(red: 218/255, green: 114/255, blue: 60/255, alpha: 0.4)
+        case .white:
+            return .black
+        case .black:
+            return .white
         }
     }
-    
+    var DaySelectionColor: UIColor{
+        switch self {
+        case .theme1:
+            return UIColor.white
+           // return UIColor(red: 105/255, green: 215/255, blue: 228/255, alpha: 1.0)
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor.black
+        case .black:
+            return .white
+        }
+    }
+    var segmentColor: UIColor{
+        switch self {
+        case .theme1:
+            return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+        case .theme2:
+                   return UIColor(red: 19/255, green: 25/255, blue: 50/255, alpha: 1.0)
+               case .theme3:
+                   return UIColor(red: 49/255, green: 44/255, blue: 81/255, alpha: 1.0)
+               case .theme4:
+                   return UIColor(red: 42/255, green: 45/255, blue: 73/255, alpha: 1.0)
+            
+        case .white:
+            return .black
+        case .black:
+            return .black
+        }
+    }
     var selectedRangeBorderColor: UIColor {
         switch self {
         case .theme1:
@@ -162,6 +251,10 @@ enum Theme: Int {
             return UIColor.white
         case .theme4:
             return UIColor.white
+        case .white:
+               return UIColor.black
+        case .black:
+            return .white
         }
     }
 }

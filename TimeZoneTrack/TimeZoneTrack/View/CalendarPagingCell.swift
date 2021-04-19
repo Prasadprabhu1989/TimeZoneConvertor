@@ -61,17 +61,28 @@ class CalendarPagingCell: PagingCell {
   
   fileprivate func updateSelectedState(selected: Bool) {
     guard let options = options else { return }
+//    if selected {
+//      dateLabel.textColor = options.textColor
+//      weekdayLabel.textColor = options.textColor
+//        dateLabel.font = options.selectedFont
+//        weekdayLabel.font = options.selectedFont
+//    } else {
+//      dateLabel.textColor = options.textColor
+//      weekdayLabel.textColor = options.textColor
+//        dateLabel.font = options.font
+//        weekdayLabel.font = options.font
+//    }
     if selected {
-      dateLabel.textColor = options.textColor
-      weekdayLabel.textColor = options.textColor
-        dateLabel.font = options.selectedFont
-        weekdayLabel.font = options.selectedFont
-    } else {
-      dateLabel.textColor = options.textColor
-      weekdayLabel.textColor = options.textColor
-        dateLabel.font = options.font
-        weekdayLabel.font = options.font
-    }
+        dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+         weekdayLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+           dateLabel.font = options.selectedFont
+           weekdayLabel.font = options.selectedFont
+       } else {
+         dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+         weekdayLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+           dateLabel.font = options.font
+           weekdayLabel.font = options.font
+       }
   }
   
   override func setPagingItem(_ pagingItem: PagingItem, selected: Bool, options: PagingOptions) {

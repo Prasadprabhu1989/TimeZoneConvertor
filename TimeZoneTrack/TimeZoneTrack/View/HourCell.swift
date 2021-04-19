@@ -13,13 +13,13 @@ struct TimeCollectionModel {
 }
 
 class HourCell: UICollectionViewCell {
-    
+    let theme = ThemeManager.currentTheme()
     var titleLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.textColor = UIColor.white
+        label.textColor =  ThemeManager.currentTheme().DaySelectionColor
         //label.font = UIFont(name: "Lato-Regular", size: 11.0)
         label.numberOfLines = 0
         return label

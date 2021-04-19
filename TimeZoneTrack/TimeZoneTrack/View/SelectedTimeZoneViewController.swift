@@ -39,7 +39,7 @@ class SelectedTimeZoneViewController: UIViewController {
     
     let calendarViewController = CalendarViewController()
     
-    let theme = ThemeManager.currentTheme()
+    var theme = ThemeManager.currentTheme()
     
     var timeZoneArray: [SelectedTimeZone] = [] {
         didSet {
@@ -108,7 +108,7 @@ class SelectedTimeZoneViewController: UIViewController {
         timeListTableView.backgroundColor = theme.tableViewBackGroundColor
         selectedDateTimeView.backgroundColor = theme.selectedRangeColor
         hoursListView.backgroundColor = theme.backgroundColor
-        calendarView.backgroundColor = theme.backgroundColor
+        calendarView.backgroundColor = theme.calendarBackgroundColor
         collectionView.backgroundColor = theme.hoursRangeBackgroundColor
         monthNameView.backgroundColor = theme.backgroundColor
         separatorLine1View.backgroundColor = theme.seperatorViewColor
@@ -226,15 +226,22 @@ class SelectedTimeZoneViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SettingsIdentifier" {
              guard let settingsVC = segue.destination as? SettingsViewController else { return }
-            settingsVC.hoursStyle = self.hoursStyle
-            settingsVC.completionHandler = { [weak self](hoursStyle) in
-                self?.hoursStyle = hoursStyle!
-               
-//                hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
-                
-                self?.hoursRangeArray = self?.timeZoneHelperModel?.getHoursArray(hoursStyle!) ?? []
-                
-            }
+//            settingsVC.hoursStyle = self.hoursStyle
+//            settingsVC.completionHandler = { [weak self](hoursStyle) in
+//                self?.hoursStyle = hoursStyle!
+//               
+////                hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
+//                
+//                self?.hoursRangeArray = self?.timeZoneHelperModel?.getHoursArray(hoursStyle!) ?? []
+//                
+//            }
+//            settingsVC.applyTheme = { [weak self] in
+//                self?.theme = ThemeManager.currentTheme()
+//                self?.applyThemeStyle()
+//                self?.collectionView.reloadData()
+//              
+//            }
+            
         }
         guard let addTimeZoneViewController = segue.destination as? AddTimeZoneViewController else { return }
         addTimeZoneViewController.addTimeZoneClosure = { [weak self] timezoneModel in
@@ -269,6 +276,7 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeZoneArray.count
     }
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -319,7 +327,7 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
             tableView.reloadData()
         }
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = theme.backgroundColor
         cell.reorderControlImageView?.tint(color: theme.seperatorViewColor)
@@ -356,6 +364,12 @@ extension SelectedTimeZoneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .none
+//    }
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        return false
+//    }
 }
 
 extension SelectedTimeZoneViewController: UICollectionViewDataSource {
