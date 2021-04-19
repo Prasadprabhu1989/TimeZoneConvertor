@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59075DA926299FE100C9511C /* UITableView+Reorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA326299FE100C9511C /* UITableView+Reorder.swift */; };
+		59075DAA26299FE100C9511C /* ReorderController+SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA426299FE100C9511C /* ReorderController+SnapshotView.swift */; };
+		59075DAB26299FE100C9511C /* ReorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA526299FE100C9511C /* ReorderController.swift */; };
+		59075DAC26299FE100C9511C /* ReorderController+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA626299FE100C9511C /* ReorderController+GestureRecognizer.swift */; };
+		59075DAD26299FE100C9511C /* ReorderController+DestinationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA726299FE100C9511C /* ReorderController+DestinationRow.swift */; };
+		59075DAE26299FE100C9511C /* ReorderController+AutoScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59075DA826299FE100C9511C /* ReorderController+AutoScroll.swift */; };
 		590AF0E22615B358000D5D4D /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF09F2615B358000D5D4D /* PagingViewController.swift */; };
 		590AF0E32615B358000D5D4D /* PageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF0A02615B358000D5D4D /* PageViewManager.swift */; };
 		590AF0E42615B358000D5D4D /* PagingTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF0A12615B358000D5D4D /* PagingTitleCell.swift */; };
@@ -100,6 +106,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59075DA326299FE100C9511C /* UITableView+Reorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reorder.swift"; sourceTree = "<group>"; };
+		59075DA426299FE100C9511C /* ReorderController+SnapshotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+SnapshotView.swift"; sourceTree = "<group>"; };
+		59075DA526299FE100C9511C /* ReorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReorderController.swift; sourceTree = "<group>"; };
+		59075DA626299FE100C9511C /* ReorderController+GestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+GestureRecognizer.swift"; sourceTree = "<group>"; };
+		59075DA726299FE100C9511C /* ReorderController+DestinationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+DestinationRow.swift"; sourceTree = "<group>"; };
+		59075DA826299FE100C9511C /* ReorderController+AutoScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReorderController+AutoScroll.swift"; sourceTree = "<group>"; };
 		590AF09D2615B358000D5D4D /* Parchment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parchment.h; sourceTree = "<group>"; };
 		590AF09F2615B358000D5D4D /* PagingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		590AF0A02615B358000D5D4D /* PageViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewManager.swift; sourceTree = "<group>"; };
@@ -206,9 +218,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59075DA226299FE100C9511C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				59075DA326299FE100C9511C /* UITableView+Reorder.swift */,
+				59075DA426299FE100C9511C /* ReorderController+SnapshotView.swift */,
+				59075DA526299FE100C9511C /* ReorderController.swift */,
+				59075DA626299FE100C9511C /* ReorderController+GestureRecognizer.swift */,
+				59075DA726299FE100C9511C /* ReorderController+DestinationRow.swift */,
+				59075DA826299FE100C9511C /* ReorderController+AutoScroll.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		590AF09B2615B337000D5D4D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				59075DA226299FE100C9511C /* Source */,
 				590AF09C2615B358000D5D4D /* Parchment */,
 			);
 			path = External;
@@ -512,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E98B33260CB907007F3194 /* CoreDataManager.swift in Sources */,
+				59075DAC26299FE100C9511C /* ReorderController+GestureRecognizer.swift in Sources */,
 				590AF1012615B358000D5D4D /* PagingDirection.swift in Sources */,
 				590AF0F72615B358000D5D4D /* PagingMenuInteraction.swift in Sources */,
 				590AF0E52615B358000D5D4D /* PagingIndicatorView.swift in Sources */,
@@ -531,11 +558,13 @@
 				599098902615D59C004B9A02 /* PageFlowLayout.swift in Sources */,
 				590AF0F22615B358000D5D4D /* PagingFiniteDataSource.swift in Sources */,
 				590AF11F2615B358000D5D4D /* PagingLayout.swift in Sources */,
+				59075DAA26299FE100C9511C /* ReorderController+SnapshotView.swift in Sources */,
 				59E98B1E260CB361007F3194 /* SelectedTimeZoneViewController.swift in Sources */,
 				590AF1042615B358000D5D4D /* PagingMenuItemSource.swift in Sources */,
 				590AF0FA2615B358000D5D4D /* InvalidationState.swift in Sources */,
 				5FEF6E4E262965B300FD310A /* SettingsViewController.swift in Sources */,
 				590AF1192615B358000D5D4D /* PageViewManagerDataSource.swift in Sources */,
+				59075DAB26299FE100C9511C /* ReorderController.swift in Sources */,
 				590AF0ED2615B358000D5D4D /* PagingSizeCache.swift in Sources */,
 				59A9F81B261341190021B7A0 /* Extension.swift in Sources */,
 				590AF0F32615B358000D5D4D /* PagingBorderLayoutAttributes.swift in Sources */,
@@ -565,6 +594,7 @@
 				590AF0F42615B358000D5D4D /* PagingMenuView.swift in Sources */,
 				590AF0EB2615B358000D5D4D /* PagingStaticDataSource.swift in Sources */,
 				590AF0FC2615B358000D5D4D /* PagingMenuPosition.swift in Sources */,
+				59075DA926299FE100C9511C /* UITableView+Reorder.swift in Sources */,
 				590AF0F62615B358000D5D4D /* PageViewDirection.swift in Sources */,
 				590AF10E2615B358000D5D4D /* PagingTransition.swift in Sources */,
 				590AF1022615B358000D5D4D /* PagingBorderOptions.swift in Sources */,
@@ -576,6 +606,7 @@
 				590AF1122615B358000D5D4D /* PagingMenuDataSource.swift in Sources */,
 				59EE8F2F260DB9A3005E4610 /* AddTimeZoneViewController.swift in Sources */,
 				590AF0E92615B358000D5D4D /* PagingController.swift in Sources */,
+				59075DAD26299FE100C9511C /* ReorderController+DestinationRow.swift in Sources */,
 				590AF1152615B358000D5D4D /* PagingItem.swift in Sources */,
 				590AF1082615B358000D5D4D /* PagingDistance.swift in Sources */,
 				590AF11C2615B358000D5D4D /* PageViewControllerDelegate.swift in Sources */,
@@ -591,6 +622,7 @@
 				590AF1062615B358000D5D4D /* UIView+constraints.swift in Sources */,
 				590AF0EC2615B358000D5D4D /* PagingInvalidationContext.swift in Sources */,
 				590AF1092615B358000D5D4D /* PagingIndicatorMetric.swift in Sources */,
+				59075DAE26299FE100C9511C /* ReorderController+AutoScroll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

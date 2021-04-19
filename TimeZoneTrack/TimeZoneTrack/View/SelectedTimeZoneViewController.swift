@@ -36,6 +36,7 @@ class SelectedTimeZoneViewController: UIViewController {
     @IBOutlet weak var twetyFourHourStyleLabel: UILabel!
     @IBOutlet weak var seperatorLine3View: UIView!
     @IBOutlet weak var emptyTimeZoneLabel: UILabel!
+    @IBOutlet weak var addTimeZoneButton: UIButton!
     
     let calendarViewController = CalendarViewController()
     
@@ -116,7 +117,6 @@ class SelectedTimeZoneViewController: UIViewController {
         seperatorLine3View.backgroundColor = theme.seperatorViewColor
         emptyTimeZoneView.backgroundColor = theme.backgroundColor
         monthLabel.textColor = theme.titleTextColor
-        twetyFourHourStyleLabel.textColor = theme.titleTextColor
         emptyTimeZoneLabel.textColor = theme.titleTextColor
         
     }
@@ -124,12 +124,19 @@ class SelectedTimeZoneViewController: UIViewController {
     func setUpTableView() {
         timeListTableView.delegate = self
         timeListTableView.dataSource = self
-        timeListTableView.isEditing = true
         timeListTableView.estimatedRowHeight = 150
         timeListTableView.rowHeight = UITableView.automaticDimension
         timeListTableView.tableFooterView = UIView()
         timeListTableView.separatorInset = .zero
         timeListTableView.separatorColor = theme.seperatorViewColor
+//        timeListTableView.isEditing = true
+        
+        timeListTableView.reorder.delegate = self
+        timeListTableView.reorder.cellOpacity = 0.7
+        timeListTableView.reorder.cellScale = 1.05
+        timeListTableView.reorder.shadowOpacity = 0.5
+        timeListTableView.reorder.shadowRadius = 20
+        timeListTableView.reorder.shadowOffset = CGSize(width: 0, height: 10)
     }
     
     func setUpCollectionView() {
@@ -144,6 +151,8 @@ class SelectedTimeZoneViewController: UIViewController {
     
     func setSelectedDateTimeViewStyle() {
         selectedDateTimeView.addViewBorder(borderColor: theme.selectedRangeBorderColor.cgColor, borderWith: 2.0)
+//        editModeButton.layer.cornerRadius = 5
+        addTimeZoneButton.layer.cornerRadius = 5
     }
     
     func setCurrentTime() {
@@ -214,9 +223,24 @@ class SelectedTimeZoneViewController: UIViewController {
         refreshView()
     }
     
-    @IBAction func addCityTimeZoneClicked(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
+//    @IBAction func addCityTimeZoneClicked(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
+//    }
+    
+    @IBAction func addTimeZoneClicked(_ sender: UIButton) {
+     performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
     }
+    
+//    @IBAction func editTableViewClicked(_ sender: UIButton) {
+//        if(isEditable == true) {
+//            isEditable = false
+//            editModeButton.setTitle("Edit", for: .normal)
+//        } else {
+//            isEditable = true
+//            editModeButton.setTitle("Done", for: .normal)
+//        }
+//        timeListTableView.reloadData()
+//    }
     
     func hideEmptyView(_ isHidden: Bool) {
         emptyTimeZoneView.isHidden = isHidden
@@ -273,6 +297,10 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if let spacer = tableView.reorder.spacerCell(for: indexPath) {
+            return spacer
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedTimeZoneCell", for: indexPath) as? SelectedTimeZoneCell else {
             //            print("Cell not exists in storyboard")
             return UITableViewCell()
@@ -282,6 +310,24 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
         cell.homeTimeZoneButtonClickedDelegate = self
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        if isEditable {
+//            return .delete
+//        }
+//        return .none
+//    }
+    
+    //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    //        return .none
+    //    }
+    
+//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+//        if isEditable {
+//            return true
+//        }
+//        return false
+//    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -381,6 +427,14 @@ extension SelectedTimeZoneViewController: UICollectionViewDelegate {
         reloadHoursCollection()
         timeListTableView.reloadData()
     }
+}
+
+extension SelectedTimeZoneViewController: TableViewReorderDelegate {
+
+    func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+       reArrangeOrder(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
+    }
+
 }
 
 
