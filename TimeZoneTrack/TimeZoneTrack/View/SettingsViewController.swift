@@ -171,7 +171,7 @@ class SettingsViewController: UITableViewController{
             
         }
         
-        //        self.completionHandler(hoursStyle)
+                self.completionHandler(hoursStyle)
     }
     //}
 }
