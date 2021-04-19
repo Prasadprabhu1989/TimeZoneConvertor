@@ -129,7 +129,7 @@ class SelectedTimeZoneViewController: UIViewController {
         timeListTableView.tableFooterView = UIView()
         timeListTableView.separatorInset = .zero
         timeListTableView.separatorColor = theme.seperatorViewColor
-//        timeListTableView.isEditing = true
+        //        timeListTableView.isEditing = true
         
         timeListTableView.reorder.delegate = self
         timeListTableView.reorder.cellOpacity = 0.7
@@ -151,7 +151,7 @@ class SelectedTimeZoneViewController: UIViewController {
     
     func setSelectedDateTimeViewStyle() {
         selectedDateTimeView.addViewBorder(borderColor: theme.selectedRangeBorderColor.cgColor, borderWith: 2.0)
-//        editModeButton.layer.cornerRadius = 5
+        //        editModeButton.layer.cornerRadius = 5
         addTimeZoneButton.layer.cornerRadius = 5
     }
     
@@ -173,7 +173,7 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//                currentDateTime = Date()
+        //                currentDateTime = Date()
         setCurrentTime()
         
         timeZoneHelperModel = TimeZoneHelperModel.init(refreshViewOnHomeTimeZoneChange: self)
@@ -223,24 +223,24 @@ class SelectedTimeZoneViewController: UIViewController {
         refreshView()
     }
     
-//    @IBAction func addCityTimeZoneClicked(_ sender: UIBarButtonItem) {
-//        performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
-//    }
+    //    @IBAction func addCityTimeZoneClicked(_ sender: UIBarButtonItem) {
+    //        performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
+    //    }
     
     @IBAction func addTimeZoneClicked(_ sender: UIButton) {
-     performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
+        performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
     }
     
-//    @IBAction func editTableViewClicked(_ sender: UIButton) {
-//        if(isEditable == true) {
-//            isEditable = false
-//            editModeButton.setTitle("Edit", for: .normal)
-//        } else {
-//            isEditable = true
-//            editModeButton.setTitle("Done", for: .normal)
-//        }
-//        timeListTableView.reloadData()
-//    }
+    //    @IBAction func editTableViewClicked(_ sender: UIButton) {
+    //        if(isEditable == true) {
+    //            isEditable = false
+    //            editModeButton.setTitle("Edit", for: .normal)
+    //        } else {
+    //            isEditable = true
+    //            editModeButton.setTitle("Done", for: .normal)
+    //        }
+    //        timeListTableView.reloadData()
+    //    }
     
     func hideEmptyView(_ isHidden: Bool) {
         emptyTimeZoneView.isHidden = isHidden
@@ -249,22 +249,26 @@ class SelectedTimeZoneViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SettingsIdentifier" {
-             guard let settingsVC = segue.destination as? SettingsViewController else { return }
-//            settingsVC.hoursStyle = self.hoursStyle
-//            settingsVC.completionHandler = { [weak self](hoursStyle) in
-//                self?.hoursStyle = hoursStyle!
-//               
-////                hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
-//                
-//                self?.hoursRangeArray = self?.timeZoneHelperModel?.getHoursArray(hoursStyle!) ?? []
-//                
-//            }
-//            settingsVC.applyTheme = { [weak self] in
-//                self?.theme = ThemeManager.currentTheme()
-//                self?.applyThemeStyle()
-//                self?.collectionView.reloadData()
-//              
-//            }
+            let nav = segue.destination as! UINavigationController
+            let settingsController = nav.viewControllers[0] as? SettingsViewController
+            guard let settingsVC = settingsController  else { return }
+            settingsVC.hoursStyle = self.hoursStyle
+            settingsVC.completionHandler = { [weak self](hoursStyle) in
+                self?.hoursStyle = hoursStyle!
+                
+                //                hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
+                
+                self?.hoursRangeArray = self?.timeZoneHelperModel?.getHoursArray(hoursStyle!) ?? []
+                
+            }
+            settingsVC.applyTheme = { [weak self] in
+                self?.theme = ThemeManager.currentTheme()
+                self?.applyThemeStyle()
+                self?.calendarViewController.pagingViewController.collectionView.reloadData()
+                self?.collectionView.reloadData()
+                self?.timeListTableView.reloadData()
+                
+            }
             
         }
         guard let addTimeZoneViewController = segue.destination as? AddTimeZoneViewController else { return }
@@ -287,7 +291,7 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     func reArrangeOrder(fromIndex: Int, toIndex: Int) {
-
+        
         timeZoneHelperModel?.reArrangeOrder(fromIndex, toIndex, timeZoneArray)
         let movedObject = timeZoneArray[fromIndex]
         timeZoneArray.remove(at: fromIndex)
@@ -319,23 +323,23 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        if isEditable {
-//            return .delete
-//        }
-//        return .none
-//    }
+    //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    //        if isEditable {
+    //            return .delete
+    //        }
+    //        return .none
+    //    }
     
     //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
     //        return .none
     //    }
     
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        if isEditable {
-//            return true
-//        }
-//        return false
-//    }
+    //    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    //        if isEditable {
+    //            return true
+    //        }
+    //        return false
+    //    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -350,15 +354,15 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
         
         if sourceIndexPath == destinationIndexPath { return }
         
-//        let indexFrom = sourceIndexPath.row
-//        let indexTo   = destinationIndexPath.row
+        //        let indexFrom = sourceIndexPath.row
+        //        let indexTo   = destinationIndexPath.row
         
         reArrangeOrder(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
-//        timeZoneHelperModel?.reArrangeOrder(indexFrom, indexTo, timeZoneArray)
-//
-//        let movedObject = timeZoneArray[sourceIndexPath.row]
-//        timeZoneArray.remove(at: sourceIndexPath.row)
-//        timeZoneArray.insert(movedObject, at: desinationIndexPath.row)
+        //        timeZoneHelperModel?.reArrangeOrder(indexFrom, indexTo, timeZoneArray)
+        //
+        //        let movedObject = timeZoneArray[sourceIndexPath.row]
+        //        timeZoneArray.remove(at: sourceIndexPath.row)
+        //        timeZoneArray.insert(movedObject, at: desinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -373,7 +377,7 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
             tableView.reloadData()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = theme.backgroundColor
         cell.reorderControlImageView?.tint(color: theme.seperatorViewColor)
@@ -397,11 +401,11 @@ extension SelectedTimeZoneViewController: DateSelectedDelegate {
 extension SelectedTimeZoneViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let centerCellIndexPath: IndexPath  = collectionView.centerCellIndexPath {
-          print(centerCellIndexPath)
-          selectedHourIndex = centerCellIndexPath.row
-          offsetHour = centerCellIndexPath.row - selectedHourIndexOffset
-          reloadHoursCollection()
-          timeListTableView.reloadData()
+            print(centerCellIndexPath)
+            selectedHourIndex = centerCellIndexPath.row
+            offsetHour = centerCellIndexPath.row - selectedHourIndexOffset
+            reloadHoursCollection()
+            timeListTableView.reloadData()
         }
     }
 }
@@ -410,12 +414,12 @@ extension SelectedTimeZoneViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
-//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-//        return .none
-//    }
-//    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-//        return false
-//    }
+    //    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    //        return .none
+    //    }
+    //    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    //        return false
+    //    }
 }
 
 extension SelectedTimeZoneViewController: UICollectionViewDataSource {
@@ -444,11 +448,11 @@ extension SelectedTimeZoneViewController: UICollectionViewDelegate {
 }
 
 extension SelectedTimeZoneViewController: TableViewReorderDelegate {
-
+    
     func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-       reArrangeOrder(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
+        reArrangeOrder(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
-
+    
 }
 
 

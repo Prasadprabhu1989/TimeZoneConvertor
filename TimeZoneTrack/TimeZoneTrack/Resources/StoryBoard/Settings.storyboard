@@ -65,13 +65,24 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WLZ-HC-dbn">
+                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="WLZ-HC-dbn" secondAttribute="height" multiplier="1:1" id="WpJ-rm-nNu"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="WLZ-HC-dbn" firstAttribute="centerY" secondItem="kaH-za-wOO" secondAttribute="centerY" id="Wwl-0a-3m4"/>
                                                 <constraint firstItem="N65-gT-4Co" firstAttribute="centerY" secondItem="kaH-za-wOO" secondAttribute="centerY" id="epK-IK-tRD"/>
                                                 <constraint firstItem="N65-gT-4Co" firstAttribute="leading" secondItem="kaH-za-wOO" secondAttribute="leading" constant="10" id="yL0-le-oSq"/>
+                                                <constraint firstAttribute="trailing" secondItem="WLZ-HC-dbn" secondAttribute="trailing" constant="10" id="zu0-hL-bXL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="WLZ-HC-dbn" firstAttribute="width" secondItem="uDW-tJ-pQj" secondAttribute="width" multiplier="0.08" id="JfI-v5-nnD"/>
+                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="wiB-Ey-BCn">
                                         <rect key="frame" x="0.0" y="148" width="414" height="60"/>
@@ -86,10 +97,20 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-VQ-t7g">
+                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Pic-VQ-t7g" secondAttribute="height" multiplier="1:1" id="1vz-YH-lw6"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Pic-VQ-t7g" firstAttribute="centerY" secondItem="e99-Bl-J1l" secondAttribute="centerY" id="AwY-8f-rpy"/>
+                                                <constraint firstItem="Pic-VQ-t7g" firstAttribute="width" secondItem="Pic-VQ-t7g" secondAttribute="height" multiplier="1:1" id="EXm-x8-7m9"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pic-VQ-t7g" secondAttribute="trailing" constant="10" id="bLa-Ah-TJz"/>
                                                 <constraint firstItem="5YF-Kz-QZr" firstAttribute="centerY" secondItem="e99-Bl-J1l" secondAttribute="centerY" id="bXT-4p-O6A"/>
                                                 <constraint firstItem="5YF-Kz-QZr" firstAttribute="leading" secondItem="e99-Bl-J1l" secondAttribute="leading" constant="10" id="rgG-6z-xfx"/>
+                                                <constraint firstItem="Pic-VQ-t7g" firstAttribute="width" secondItem="e99-Bl-J1l" secondAttribute="width" multiplier="0.08" id="vvk-0t-ZW8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -107,10 +128,22 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-hW-7eh">
+                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="CJk-nY-WQP"/>
+                                                        <constraint firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="R4d-Rt-15b"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="G8D-ob-qXE"/>
+                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="C7G-at-ymC" secondAttribute="width" multiplier="0.08" id="OW4-69-62D"/>
+                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="U0F-Ba-ljB"/>
                                                 <constraint firstItem="rRv-8E-fVH" firstAttribute="leading" secondItem="C7G-at-ymC" secondAttribute="leading" constant="10" id="Xdj-vz-E1b"/>
+                                                <constraint firstAttribute="trailing" secondItem="S3F-hW-7eh" secondAttribute="trailing" constant="10" id="eio-wZ-ekJ"/>
                                                 <constraint firstItem="rRv-8E-fVH" firstAttribute="centerY" secondItem="C7G-at-ymC" secondAttribute="centerY" id="l2j-IB-UIf"/>
+                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="centerY" secondItem="C7G-at-ymC" secondAttribute="centerY" id="rBo-fB-P9W"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -123,10 +156,27 @@
                             <outlet property="delegate" destination="hXt-xY-hRC" id="yL7-eb-1kq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="YMo-Ne-cwx"/>
+                    <navigationItem key="navigationItem" title="Settings" id="YMo-Ne-cwx">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Q88-Yx-93p">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="clickDone:" destination="hXt-xY-hRC" id="25t-UD-kKj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="blackContentView" destination="C7G-at-ymC" id="CAv-ho-Tuz"/>
+                        <outlet property="blackLabel" destination="rRv-8E-fVH" id="pCd-rF-tNA"/>
+                        <outlet property="graphiteContentView" destination="kaH-za-wOO" id="Tud-Bh-5Hz"/>
+                        <outlet property="graphiteLabel" destination="N65-gT-4Co" id="Hy5-6I-Uzb"/>
                         <outlet property="hourStyleSwitch" destination="vbN-SY-i0W" id="XJV-iZ-krn"/>
+                        <outlet property="hoursContentView" destination="rpC-EZ-qD0" id="08b-AR-LBD"/>
+                        <outlet property="tickMark1" destination="WLZ-HC-dbn" id="W1K-wO-1ug"/>
+                        <outlet property="tickMark2" destination="Pic-VQ-t7g" id="tjx-dQ-b9K"/>
+                        <outlet property="tickMark3" destination="S3F-hW-7eh" id="LwB-7S-Gsb"/>
                         <outlet property="twetyFourHourStyleLabel" destination="BtM-dF-UwS" id="0nw-v0-rVB"/>
+                        <outlet property="whiteContentView" destination="e99-Bl-J1l" id="swi-eN-e4p"/>
+                        <outlet property="whiteLabel" destination="5YF-Kz-QZr" id="8BW-3Y-6fh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4VA-dW-ieI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

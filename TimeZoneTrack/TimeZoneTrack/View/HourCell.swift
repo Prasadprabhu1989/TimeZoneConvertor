@@ -53,6 +53,8 @@ class HourCell: UICollectionViewCell {
         } else {
             titleLabel.font = UIFont(name: "Lato-Semibold", size: 11.0) //?? UIFont(name: "Lato-Regular", size: 11.0)
         }
+        titleLabel.textColor =  ThemeManager.currentTheme().DaySelectionColor
+
     }
     
     func updateTimeInCell() {

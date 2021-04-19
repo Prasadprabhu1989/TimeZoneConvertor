@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E5194F28-DCEA-4863-BFC7-1019D10B983F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeZoneTrack/View/SelectedTimeZoneCell.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4629D035-1D86-414C-8A70-5E2D5A9AB9B6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeZoneTrack/View/SelectedTimeZoneCell.swift"
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeZoneTrack/View/SelectedTimeZoneCell.swift"
@@ -52,14 +52,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - dc52dfc3940d6420"
+                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - bd9800801cd911d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "default argument 3 of TimeZoneTrack.SelectedTimeZoneCell.updateUI(with: Foundation.Date, selectedTimeZone: TimeZoneTrack.SelectedTimeZone, hourStyle: TimeZoneTrack.HoursStyle, offsetHour: Swift.Int, offsetDay: Swift.Int) -&gt; ()"
                   moduleName = "TimeZoneTrack"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/prasadprabhu/Downloads/TimeZoneTrack_April_14/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
+                  urlString = "file:///Users/prasadprabhu/Desktop/Projects/TimeZoneConvertor/TimeZoneTrack/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -67,14 +67,14 @@
                   offsetFromSymbolStart = "6">
                </Location>
                <Location
-                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - 67f6391782d4e225"
+                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - 63ce6540a0097d3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "default argument 4 of TimeZoneTrack.SelectedTimeZoneCell.updateUI(with: Foundation.Date, selectedTimeZone: TimeZoneTrack.SelectedTimeZone, hourStyle: TimeZoneTrack.HoursStyle, offsetHour: Swift.Int, offsetDay: Swift.Int) -&gt; ()"
                   moduleName = "TimeZoneTrack"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/prasadprabhu/Downloads/TimeZoneTrack_April_14/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
+                  urlString = "file:///Users/prasadprabhu/Desktop/Projects/TimeZoneConvertor/TimeZoneTrack/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -82,19 +82,19 @@
                   offsetFromSymbolStart = "6">
                </Location>
                <Location
-                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - 767f2cc7c8df8d19"
+                  uuid = "E570809D-6F91-41C7-8502-60E855E1E2A7 - 17b5f384400bf8ef"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TimeZoneTrack.SelectedTimeZoneCell.updateUI(with: Foundation.Date, selectedTimeZone: TimeZoneTrack.SelectedTimeZone, hourStyle: TimeZoneTrack.HoursStyle, offsetHour: Swift.Int, offsetDay: Swift.Int) -&gt; ()"
                   moduleName = "TimeZoneTrack"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/prasadprabhu/Downloads/TimeZoneTrack_April_14/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
+                  urlString = "file:///Users/prasadprabhu/Desktop/Projects/TimeZoneConvertor/TimeZoneTrack/TimeZoneTrack/View/SelectedTimeZoneCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
                   endingLineNumber = "38"
-                  offsetFromSymbolStart = "664">
+                  offsetFromSymbolStart = "680">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -135,7 +135,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "09140EC0-6080-4CCB-9106-597DA20F9E4A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeZoneTrack/View/SelectedTimeZoneCell.swift"
@@ -151,7 +151,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3C2FF4A3-C0BB-4D5B-A874-908104C6E304"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeZoneTrack/Utils/TimeZoneHelperModel.swift"
@@ -159,7 +159,39 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "246"
             endingLineNumber = "246"
-            landmarkName = "getDay(date:)"
+            landmarkName = "getDay(date:timeZone:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEB83D72-7AFB-43E4-B60F-B90479DCFF8A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimeZoneTrack/View/SelectedTimeZoneViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06A8E7CE-688E-4C74-B3E5-F1C49CD94B8A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimeZoneTrack/View/SelectedTimeZoneViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

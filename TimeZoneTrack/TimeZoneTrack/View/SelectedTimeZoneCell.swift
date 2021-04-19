@@ -32,7 +32,7 @@ class SelectedTimeZoneCell: UITableViewCell {
     var currentDateTime: Date!
     
     func updateUI(with date: Date, selectedTimeZone: SelectedTimeZone, hourStyle: HoursStyle, offsetHour: Int = 0, offsetDay: Int = 0) {
-        
+         setThemes()
         let timeInterval = TimeInterval()
         
         if let cityName = selectedTimeZone.name {
@@ -119,14 +119,17 @@ class SelectedTimeZoneCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        contentView.backgroundColor = theme.backgroundColor
-        cityNameLabel.textColor = theme.titleTextColor
-        cityTimeLabel.textColor = theme.titleTextColor
-        amOrpmLabel.textColor = theme.titleTextColor
-        cityDateLabel.textColor = theme.titleTextColor
-        localTimeZoneLabel.textColor = theme.subtitleTextColor
-        timeDiffrenceLabel.textColor = theme.subtitleTextColor
+       setThemes()
          //setBorder()
+    }
+    func setThemes(){
+        contentView.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        cityNameLabel.textColor = ThemeManager.currentTheme().titleTextColor
+        cityTimeLabel.textColor = ThemeManager.currentTheme().titleTextColor
+               amOrpmLabel.textColor = ThemeManager.currentTheme().titleTextColor
+               cityDateLabel.textColor = ThemeManager.currentTheme().titleTextColor
+               localTimeZoneLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
+               timeDiffrenceLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
     }
     func setBorder(){
        
