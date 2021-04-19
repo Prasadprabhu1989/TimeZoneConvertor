@@ -21,7 +21,7 @@ class HourCell: UICollectionViewCell {
         label.lineBreakMode = .byWordWrapping
         label.textColor =  ThemeManager.currentTheme().DaySelectionColor
         //label.font = UIFont(name: "Lato-Regular", size: 11.0)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
 
@@ -41,8 +41,8 @@ class HourCell: UICollectionViewCell {
     
     func setUpConstraint() {
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.0).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5.0).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
