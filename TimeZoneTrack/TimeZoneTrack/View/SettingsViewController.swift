@@ -11,8 +11,13 @@ import UIKit
 
 class SettingsViewController: UITableViewController{
     @IBOutlet weak var themeSegment: UISegmentedControl!
+    @IBOutlet weak var selectThemeCell: UITableViewCell!
+    @IBOutlet weak var graphiteCell: UITableViewCell!
+    @IBOutlet weak var whiteCell: UITableViewCell!
     @IBOutlet weak var hourStyleSwitch: UISwitch!
+    @IBOutlet weak var selectThemeLabel: UILabel!
     var hoursStyle: HoursStyle = .twentyfourHour
+    @IBOutlet weak var selectThemeContentView: UIView!
     var completionHandler:((_ hoursStyle:HoursStyle?) ->())!
     var applyTheme :(() -> ())?
     //
@@ -35,6 +40,7 @@ class SettingsViewController: UITableViewController{
         
         setColors()
         setCurrentTheme()
+        removeBorderForCell()
         tableView.tableFooterView = UIView()
         
     }
@@ -54,24 +60,35 @@ class SettingsViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
-    
+    func removeBorderForCell(){
+        selectThemeCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+              selectThemeCell.directionalLayoutMargins = .zero
+        graphiteCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+                     graphiteCell.directionalLayoutMargins = .zero
+        whiteCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+                     whiteCell.directionalLayoutMargins = .zero
+        
+    }
     
     func setColors(){
         //
+      
         let theme = ThemeManager.currentTheme()
         self.view.backgroundColor = theme.backgroundColor
         
         self.tableView.backgroundColor = theme.backgroundColor
         //
         //        hourStyleSwitch.isOn = false
-        self.twetyFourHourStyleLabel.textColor = theme.subtitleTextColor
+        self.twetyFourHourStyleLabel.textColor = theme.titleTextColor
         self.hoursContentView.backgroundColor = theme.backgroundColor
-        self.graphiteLabel.textColor = theme.subtitleTextColor
-        self.whiteLabel.textColor = theme.subtitleTextColor
-        self.blackLabel.textColor = theme.subtitleTextColor
+        self.graphiteLabel.textColor = theme.titleTextColor
+        self.whiteLabel.textColor = theme.titleTextColor
+        self.blackLabel.textColor = theme.titleTextColor
+        self.selectThemeLabel.textColor = theme.titleTextColor
+        self.selectThemeContentView.backgroundColor = theme.backgroundColor
          self.graphiteContentView.backgroundColor = theme.backgroundColor
          self.whiteContentView.backgroundColor = theme.backgroundColor
          self.blackContentView.backgroundColor = theme.backgroundColor
@@ -93,19 +110,20 @@ class SettingsViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         tableView.deselectRow(at: indexPath, animated: true)
+        if  indexPath.row > 1{
         switch indexPath.row {
-        case 1:
+        case 2:
             tickMark1.image = #imageLiteral(resourceName: "Tick")
             tickMark2.image = nil
             tickMark3.image = nil
               ThemeManager.applyTheme(theme: .theme1)
             
-        case 2:
+        case 3:
             tickMark2.image = #imageLiteral(resourceName: "Tick")
             tickMark1.image = nil
             tickMark3.image = nil
              ThemeManager.applyTheme(theme: .white)
-        case 3:
+        case 4:
             tickMark3.image = #imageLiteral(resourceName: "Tick")
             tickMark1.image = nil
             tickMark2.image = nil
@@ -117,6 +135,7 @@ class SettingsViewController: UITableViewController{
         setTickTintColor()
         setColors()
         applyTheme!()
+        }
     }
     
     //
