@@ -31,7 +31,7 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var graphiteContentView: UIView!
     @IBOutlet weak var whiteContentView: UIView!
     @IBOutlet weak var blackContentView: UIView!
-
+    
     @IBOutlet weak var blackLabel: UILabel!
     @IBOutlet weak var whiteLabel: UILabel!
     @IBOutlet weak var graphiteLabel: UILabel!
@@ -47,16 +47,16 @@ class SettingsViewController: UITableViewController{
     func setCurrentTheme(){
         let theme = ThemeManager.currentTheme()
         switch theme {
-               case .theme1:
-                   tickMark1.image = #imageLiteral(resourceName: "Tick")
-                   
-               case .white:
-                   tickMark2.image = #imageLiteral(resourceName: "Tick")
-                   
-               default:
-                   tickMark3.image = #imageLiteral(resourceName: "Tick")
-               }
-               setTickTintColor()
+        case .theme1:
+            tickMark1.image = #imageLiteral(resourceName: "Tick")
+            
+        case .white:
+            tickMark2.image = #imageLiteral(resourceName: "Tick")
+            
+        default:
+            tickMark3.image = #imageLiteral(resourceName: "Tick")
+        }
+        setTickTintColor()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,23 +65,23 @@ class SettingsViewController: UITableViewController{
     
     func removeBorderForCell(){
         selectThemeCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-              selectThemeCell.directionalLayoutMargins = .zero
+        selectThemeCell.directionalLayoutMargins = .zero
         graphiteCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-                     graphiteCell.directionalLayoutMargins = .zero
+        graphiteCell.directionalLayoutMargins = .zero
         whiteCell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
-                     whiteCell.directionalLayoutMargins = .zero
+        whiteCell.directionalLayoutMargins = .zero
         
     }
     
     func setColors(){
         //
-      
+        
         let theme = ThemeManager.currentTheme()
         self.view.backgroundColor = theme.backgroundColor
         
         self.tableView.backgroundColor = theme.backgroundColor
         //
-        //        hourStyleSwitch.isOn = false
+        hourStyleSwitch.isOn = false
         self.twetyFourHourStyleLabel.textColor = theme.titleTextColor
         self.hoursContentView.backgroundColor = theme.backgroundColor
         self.graphiteLabel.textColor = theme.titleTextColor
@@ -89,17 +89,15 @@ class SettingsViewController: UITableViewController{
         self.blackLabel.textColor = theme.titleTextColor
         self.selectThemeLabel.textColor = theme.titleTextColor
         self.selectThemeContentView.backgroundColor = theme.backgroundColor
-         self.graphiteContentView.backgroundColor = theme.backgroundColor
-         self.whiteContentView.backgroundColor = theme.backgroundColor
-         self.blackContentView.backgroundColor = theme.backgroundColor
+        self.graphiteContentView.backgroundColor = theme.backgroundColor
+        self.whiteContentView.backgroundColor = theme.backgroundColor
+        self.blackContentView.backgroundColor = theme.backgroundColor
         //
         if hoursStyle == .twentyfourHour {
             hourStyleSwitch.isOn = true
             self.twetyFourHourStyleLabel.textColor = theme.titleTextColor
         }
-        
-      
-        
+
         
     }
     func setTickTintColor(){
@@ -108,55 +106,37 @@ class SettingsViewController: UITableViewController{
         tickMark3.tint(color: ThemeManager.currentTheme().navigationBarTint)
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         tableView.deselectRow(at: indexPath, animated: true)
         if  indexPath.row > 1{
-        switch indexPath.row {
-        case 2:
-            tickMark1.image = #imageLiteral(resourceName: "Tick")
-            tickMark2.image = nil
-            tickMark3.image = nil
-              ThemeManager.applyTheme(theme: .theme1)
-            
-        case 3:
-            tickMark2.image = #imageLiteral(resourceName: "Tick")
-            tickMark1.image = nil
-            tickMark3.image = nil
-             ThemeManager.applyTheme(theme: .white)
-        case 4:
-            tickMark3.image = #imageLiteral(resourceName: "Tick")
-            tickMark1.image = nil
-            tickMark2.image = nil
-              ThemeManager.applyTheme(theme: .black)
-            
-        default: break
-            
-        }
-        setTickTintColor()
-        setColors()
-        applyTheme!()
+            switch indexPath.row {
+            case 2:
+                tickMark1.image = #imageLiteral(resourceName: "Tick")
+                tickMark2.image = nil
+                tickMark3.image = nil
+                ThemeManager.applyTheme(theme: .theme1)
+                
+            case 3:
+                tickMark2.image = #imageLiteral(resourceName: "Tick")
+                tickMark1.image = nil
+                tickMark3.image = nil
+                ThemeManager.applyTheme(theme: .white)
+            case 4:
+                tickMark3.image = #imageLiteral(resourceName: "Tick")
+                tickMark1.image = nil
+                tickMark2.image = nil
+                ThemeManager.applyTheme(theme: .black)
+                
+            default: break
+                
+            }
+            setTickTintColor()
+            setColors()
+            applyTheme!()
         }
     }
     
-    //
-    //    @IBAction func changeTheme(_ sender: Any) {
-    //        let segmentControl = sender as! UISegmentedControl
-    //        switch segmentControl.selectedSegmentIndex {
-    //        case 0:
-    //            ThemeManager.applyTheme(theme: .theme1)
-    //
-    //        case 1:
-    //            ThemeManager.applyTheme(theme: .white)
-    //
-    //        default:
-    //            ThemeManager.applyTheme(theme: .black)
-    //        }
-    //        setColors()
-    //        applyTheme!()
-    //    }
-    //
-    //
-    //
+    
     @IBAction func clickDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -171,7 +151,7 @@ class SettingsViewController: UITableViewController{
             
         }
         
-                self.completionHandler(hoursStyle)
+        self.completionHandler(hoursStyle)
     }
-    //}
+    
 }
