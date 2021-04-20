@@ -51,13 +51,26 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXe-s6-QCh">
+                                        <rect key="frame" x="285" y="5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fXe-s6-QCh" secondAttribute="height" multiplier="1:1" id="FHT-Kk-I2h"/>
+                                        </constraints>
+                                        <state key="normal" image="calendar"/>
+                                        <connections>
+                                            <action selector="calendarClicked:" destination="Dda-gk-4kq" eventType="touchUpInside" id="Q7J-kR-ib4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="BNm-15-FhV" secondAttribute="bottom" constant="2" id="CuK-iP-I2j"/>
+                                    <constraint firstAttribute="trailing" secondItem="fXe-s6-QCh" secondAttribute="trailing" constant="5" id="IGw-jZ-sPq"/>
+                                    <constraint firstAttribute="bottom" secondItem="fXe-s6-QCh" secondAttribute="bottom" constant="5" id="Ogh-AB-uma"/>
                                     <constraint firstItem="BNm-15-FhV" firstAttribute="top" secondItem="Gbd-1H-Q0k" secondAttribute="top" id="Si9-K0-tQ7"/>
                                     <constraint firstItem="BNm-15-FhV" firstAttribute="leading" secondItem="Gbd-1H-Q0k" secondAttribute="leading" constant="20" id="T1j-l3-ymp"/>
                                     <constraint firstAttribute="height" constant="40" id="XYc-Kz-KYa"/>
+                                    <constraint firstItem="fXe-s6-QCh" firstAttribute="top" secondItem="Gbd-1H-Q0k" secondAttribute="top" constant="5" id="gGM-OG-L9s"/>
                                     <constraint firstAttribute="trailing" secondItem="BNm-15-FhV" secondAttribute="trailing" constant="20" id="ldv-j8-Bmo"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -332,6 +345,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addTimeZoneButton" destination="Uc9-6n-qML" id="BU1-06-YMr"/>
+                        <outlet property="calendarButton" destination="fXe-s6-QCh" id="EmX-CS-2dJ"/>
                         <outlet property="calendarView" destination="kcP-Te-51o" id="diL-KP-D53"/>
                         <outlet property="collectionView" destination="0yJ-ks-lZh" id="UYY-V5-YS5"/>
                         <outlet property="emptyTimeZoneLabel" destination="upZ-HD-lLP" id="Ik3-9v-KEz"/>
@@ -483,6 +497,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="64" height="64"/>
         <image name="home-unfill-blue" width="50" height="50"/>
         <image name="reorder-lightGray" width="25" height="25"/>
         <image name="reset-time" width="25" height="25"/>

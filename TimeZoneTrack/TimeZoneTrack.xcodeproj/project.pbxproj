@@ -80,6 +80,15 @@
 		590AF1292615B66D000D5D4D /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590AF1272615B66D000D5D4D /* ContentViewController.swift */; };
 		594D2029262598FC00F23B57 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594D2028262598FC00F23B57 /* ThemeManager.swift */; };
 		59620221260DE8DD00916F8E /* TimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59620220260DE8DD00916F8E /* TimeZoneCell.swift */; };
+		59694CC2262E9D54003EF610 /* CalendarPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CBC262E9D54003EF610 /* CalendarPickerFooterView.swift */; };
+		59694CC3262E9D54003EF610 /* CalendarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CBD262E9D54003EF610 /* CalendarPickerViewController.swift */; };
+		59694CC4262E9D54003EF610 /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CBE262E9D54003EF610 /* CalendarDateCollectionViewCell.swift */; };
+		59694CC5262E9D54003EF610 /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CBF262E9D54003EF610 /* CalendarPickerHeaderView.swift */; };
+		59694CC6262E9D54003EF610 /* YearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CC0262E9D54003EF610 /* YearCell.swift */; };
+		59694CC7262E9D54003EF610 /* YearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59694CC1262E9D54003EF610 /* YearCell.xib */; };
+		59694CCC262E9D6E003EF610 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CC9262E9D6E003EF610 /* ChecklistItem.swift */; };
+		59694CCD262E9D6E003EF610 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CCA262E9D6E003EF610 /* Day.swift */; };
+		59694CCE262E9D6E003EF610 /* MonthMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CCB262E9D6E003EF610 /* MonthMetadata.swift */; };
 		599098902615D59C004B9A02 /* PageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990988F2615D59C004B9A02 /* PageFlowLayout.swift */; };
 		599098922615D600004B9A02 /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599098912615D600004B9A02 /* HourCell.swift */; };
 		5995A8C42624AB99006CB456 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BE2624AB99006CB456 /* Lato-Italic.ttf */; };
@@ -180,6 +189,15 @@
 		590AF1272615B66D000D5D4D /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		594D2028262598FC00F23B57 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		59620220260DE8DD00916F8E /* TimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneCell.swift; sourceTree = "<group>"; };
+		59694CBC262E9D54003EF610 /* CalendarPickerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerFooterView.swift; sourceTree = "<group>"; };
+		59694CBD262E9D54003EF610 /* CalendarPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerViewController.swift; sourceTree = "<group>"; };
+		59694CBE262E9D54003EF610 /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		59694CBF262E9D54003EF610 /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
+		59694CC0262E9D54003EF610 /* YearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearCell.swift; sourceTree = "<group>"; };
+		59694CC1262E9D54003EF610 /* YearCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearCell.xib; sourceTree = "<group>"; };
+		59694CC9262E9D6E003EF610 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		59694CCA262E9D6E003EF610 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		59694CCB262E9D6E003EF610 /* MonthMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthMetadata.swift; sourceTree = "<group>"; };
 		5990988F2615D59C004B9A02 /* PageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFlowLayout.swift; sourceTree = "<group>"; };
 		599098912615D600004B9A02 /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
 		5995A8B92624AB99006CB456 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
@@ -234,6 +252,7 @@
 		590AF09B2615B337000D5D4D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				59694CBB262E9D54003EF610 /* CalendarPicker */,
 				59075DA226299FE100C9511C /* Source */,
 				590AF09C2615B358000D5D4D /* Parchment */,
 			);
@@ -360,6 +379,30 @@
 				5995A8B92624AB99006CB456 /* Lato-Thin.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		59694CBB262E9D54003EF610 /* CalendarPicker */ = {
+			isa = PBXGroup;
+			children = (
+				59694CC8262E9D6E003EF610 /* Models */,
+				59694CBC262E9D54003EF610 /* CalendarPickerFooterView.swift */,
+				59694CBD262E9D54003EF610 /* CalendarPickerViewController.swift */,
+				59694CBE262E9D54003EF610 /* CalendarDateCollectionViewCell.swift */,
+				59694CBF262E9D54003EF610 /* CalendarPickerHeaderView.swift */,
+				59694CC0262E9D54003EF610 /* YearCell.swift */,
+				59694CC1262E9D54003EF610 /* YearCell.xib */,
+			);
+			path = CalendarPicker;
+			sourceTree = "<group>";
+		};
+		59694CC8262E9D6E003EF610 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				59694CC9262E9D6E003EF610 /* ChecklistItem.swift */,
+				59694CCA262E9D6E003EF610 /* Day.swift */,
+				59694CCB262E9D6E003EF610 /* MonthMetadata.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		59B15A6E260E12CC00A8A1E9 /* CoreData */ = {
@@ -517,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59694CC7262E9D54003EF610 /* YearCell.xib in Resources */,
 				5995A8C52624ABDE006CB456 /* Lato-Bold.ttf in Resources */,
 				5995A8C62624ABDE006CB456 /* Lato-Light.ttf in Resources */,
 				5995A8C72624ABDE006CB456 /* Lato-Regular.ttf in Resources */,
@@ -548,6 +592,7 @@
 				590AF0E82615B358000D5D4D /* PagingIndicatorLayoutAttributes.swift in Sources */,
 				59E98B2F260CB379007F3194 /* TimeZone.xcdatamodeld in Sources */,
 				59620221260DE8DD00916F8E /* TimeZoneCell.swift in Sources */,
+				59694CC6262E9D54003EF610 /* YearCell.swift in Sources */,
 				590AF0EA2615B358000D5D4D /* PagingCell.swift in Sources */,
 				590AF0F82615B358000D5D4D /* PagingMenuItemSize.swift in Sources */,
 				590AF10F2615B358000D5D4D /* PagingNavigationOrientation.swift in Sources */,
@@ -566,6 +611,7 @@
 				590AF1192615B358000D5D4D /* PageViewManagerDataSource.swift in Sources */,
 				59075DAB26299FE100C9511C /* ReorderController.swift in Sources */,
 				590AF0ED2615B358000D5D4D /* PagingSizeCache.swift in Sources */,
+				59694CC4262E9D54003EF610 /* CalendarDateCollectionViewCell.swift in Sources */,
 				59A9F81B261341190021B7A0 /* Extension.swift in Sources */,
 				590AF0F32615B358000D5D4D /* PagingBorderLayoutAttributes.swift in Sources */,
 				590AF1172615B358000D5D4D /* CollectionView.swift in Sources */,
@@ -579,6 +625,7 @@
 				59EE8F31260DBA76005E4610 /* SelectedTimeZoneCell.swift in Sources */,
 				59E98B1A260CB361007F3194 /* AppDelegate.swift in Sources */,
 				590AF1002615B358000D5D4D /* PagingIndicatorOptions.swift in Sources */,
+				59694CCD262E9D6E003EF610 /* Day.swift in Sources */,
 				590AF1132615B358000D5D4D /* PagingViewControllerInfiniteDataSource.swift in Sources */,
 				590AF11B2615B358000D5D4D /* PagingViewControllerDelegate.swift in Sources */,
 				590AF0FE2615B358000D5D4D /* PagingContentInteraction.swift in Sources */,
@@ -599,6 +646,8 @@
 				590AF10E2615B358000D5D4D /* PagingTransition.swift in Sources */,
 				590AF1022615B358000D5D4D /* PagingBorderOptions.swift in Sources */,
 				590AF10D2615B358000D5D4D /* AnyPagingItem.swift in Sources */,
+				59694CCE262E9D6E003EF610 /* MonthMetadata.swift in Sources */,
+				59694CC2262E9D54003EF610 /* CalendarPickerFooterView.swift in Sources */,
 				590AF1102615B358000D5D4D /* PagingIndexItem.swift in Sources */,
 				590AF0E72615B358000D5D4D /* PagingCellLayoutAttributes.swift in Sources */,
 				590AF0F02615B358000D5D4D /* PagingOptions.swift in Sources */,
@@ -608,6 +657,7 @@
 				590AF0E92615B358000D5D4D /* PagingController.swift in Sources */,
 				59075DAD26299FE100C9511C /* ReorderController+DestinationRow.swift in Sources */,
 				590AF1152615B358000D5D4D /* PagingItem.swift in Sources */,
+				59694CC5262E9D54003EF610 /* CalendarPickerHeaderView.swift in Sources */,
 				590AF1082615B358000D5D4D /* PagingDistance.swift in Sources */,
 				590AF11C2615B358000D5D4D /* PageViewControllerDelegate.swift in Sources */,
 				590AF0EE2615B358000D5D4D /* PagingCollectionViewLayout.swift in Sources */,
@@ -616,10 +666,12 @@
 				590AF1212615B38F000D5D4D /* CalendarViewController.swift in Sources */,
 				59E98B1C260CB361007F3194 /* SceneDelegate.swift in Sources */,
 				590AF1162615B358000D5D4D /* PageViewControllerDataSource.swift in Sources */,
+				59694CCC262E9D6E003EF610 /* ChecklistItem.swift in Sources */,
 				590AF0EF2615B358000D5D4D /* PagingBorderView.swift in Sources */,
 				590AF1052615B358000D5D4D /* UIColor+interpolation.swift in Sources */,
 				590AF1232615B4E2000D5D4D /* DateFormatters.swift in Sources */,
 				590AF1062615B358000D5D4D /* UIView+constraints.swift in Sources */,
+				59694CC3262E9D54003EF610 /* CalendarPickerViewController.swift in Sources */,
 				590AF0EC2615B358000D5D4D /* PagingInvalidationContext.swift in Sources */,
 				590AF1092615B358000D5D4D /* PagingIndicatorMetric.swift in Sources */,
 				59075DAE26299FE100C9511C /* ReorderController+AutoScroll.swift in Sources */,
@@ -769,6 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 625ZK327LX;
 				INFOPLIST_FILE = TimeZoneTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -787,6 +840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 625ZK327LX;
 				INFOPLIST_FILE = TimeZoneTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

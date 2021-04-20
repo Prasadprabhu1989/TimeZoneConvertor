@@ -37,6 +37,7 @@ class SelectedTimeZoneViewController: UIViewController {
     @IBOutlet weak var seperatorLine3View: UIView!
     @IBOutlet weak var emptyTimeZoneLabel: UILabel!
     @IBOutlet weak var addTimeZoneButton: UIButton!
+    @IBOutlet weak var calendarButton: UIButton!
     
     let calendarViewController = CalendarViewController()
     
@@ -231,6 +232,18 @@ class SelectedTimeZoneViewController: UIViewController {
         performSegue(withIdentifier: "showTimeZoneListSegue", sender: self)
     }
     
+    @IBAction func calendarClicked(_ sender: UIButton) {
+        let pickerController = CalendarPickerViewController(
+          baseDate: currentDateTime,
+          selectedDateChanged: { [weak self] date in
+          guard let self = self else { return }
+
+          
+          })
+
+        present(pickerController, animated: true, completion: nil)
+     }
+    
     //    @IBAction func editTableViewClicked(_ sender: UIButton) {
     //        if(isEditable == true) {
     //            isEditable = false
@@ -304,8 +317,6 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timeZoneArray.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
