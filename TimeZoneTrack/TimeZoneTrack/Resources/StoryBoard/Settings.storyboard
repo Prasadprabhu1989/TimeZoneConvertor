@@ -90,7 +90,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WLZ-HC-dbn">
-                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <rect key="frame" x="375" y="15.5" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="WLZ-HC-dbn" secondAttribute="height" multiplier="1:1" id="WpJ-rm-nNu"/>
                                                     </constraints>
@@ -105,7 +105,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="WLZ-HC-dbn" firstAttribute="width" secondItem="uDW-tJ-pQj" secondAttribute="width" multiplier="0.08" id="JfI-v5-nnD"/>
+                                            <constraint firstItem="WLZ-HC-dbn" firstAttribute="width" secondItem="uDW-tJ-pQj" secondAttribute="width" multiplier="0.07" id="JfI-v5-nnD"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="wiB-Ey-BCn">
@@ -122,7 +122,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-VQ-t7g">
-                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <rect key="frame" x="375" y="15.5" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Pic-VQ-t7g" secondAttribute="height" multiplier="1:1" id="1vz-YH-lw6"/>
                                                     </constraints>
@@ -134,7 +134,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Pic-VQ-t7g" secondAttribute="trailing" constant="10" id="bLa-Ah-TJz"/>
                                                 <constraint firstItem="5YF-Kz-QZr" firstAttribute="centerY" secondItem="e99-Bl-J1l" secondAttribute="centerY" id="bXT-4p-O6A"/>
                                                 <constraint firstItem="5YF-Kz-QZr" firstAttribute="leading" secondItem="e99-Bl-J1l" secondAttribute="leading" constant="10" id="rgG-6z-xfx"/>
-                                                <constraint firstItem="Pic-VQ-t7g" firstAttribute="width" secondItem="e99-Bl-J1l" secondAttribute="width" multiplier="0.08" id="vvk-0t-ZW8"/>
+                                                <constraint firstItem="Pic-VQ-t7g" firstAttribute="width" secondItem="e99-Bl-J1l" secondAttribute="width" multiplier="0.07" id="vvk-0t-ZW8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -153,7 +153,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3F-hW-7eh">
-                                                    <rect key="frame" x="371" y="13.5" width="33" height="33"/>
+                                                    <rect key="frame" x="375" y="15.5" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="CJk-nY-WQP"/>
                                                         <constraint firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="R4d-Rt-15b"/>
@@ -162,7 +162,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="G8D-ob-qXE"/>
-                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="C7G-at-ymC" secondAttribute="width" multiplier="0.08" id="OW4-69-62D"/>
+                                                <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="C7G-at-ymC" secondAttribute="width" multiplier="0.07" id="OW4-69-62D"/>
                                                 <constraint firstItem="S3F-hW-7eh" firstAttribute="width" secondItem="S3F-hW-7eh" secondAttribute="height" multiplier="1:1" id="U0F-Ba-ljB"/>
                                                 <constraint firstItem="rRv-8E-fVH" firstAttribute="leading" secondItem="C7G-at-ymC" secondAttribute="leading" constant="10" id="Xdj-vz-E1b"/>
                                                 <constraint firstAttribute="trailing" secondItem="S3F-hW-7eh" secondAttribute="trailing" constant="10" id="eio-wZ-ekJ"/>
@@ -221,6 +221,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.61568627450000002" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

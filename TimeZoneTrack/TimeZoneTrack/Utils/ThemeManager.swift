@@ -257,7 +257,17 @@ enum Theme: Int {
             return .white
         }
     }
+    var reorderTableViewColor: UIColor{
+        switch self {
+        case .white:
+            return .black
+            
+       @unknown default:
+        return .white
+        }
+    }
 }
+
 
 // Enum declaration
 let SelectedThemeKey = "SelectedTheme"
@@ -269,7 +279,7 @@ class ThemeManager {
         if let storedTheme = (UserDefaults.standard.value(forKey: SelectedThemeKey) as AnyObject).integerValue {
             return Theme(rawValue: storedTheme)!
         } else {
-            return .theme2
+            return .theme1
         }
     }
     
