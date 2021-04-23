@@ -72,17 +72,17 @@ class CalendarPagingCell: PagingCell {
 //        dateLabel.font = options.font
 //        weekdayLabel.font = options.font
 //    }
-    if selected {
-        dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+//    if selected {
+         dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
          weekdayLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
            dateLabel.font = options.selectedFont
            weekdayLabel.font = options.selectedFont
-       } else {
-         dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
-         weekdayLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
-           dateLabel.font = options.font
-           weekdayLabel.font = options.font
-       }
+//       } else {
+//         dateLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+//         weekdayLabel.textColor = ThemeManager.currentTheme().DaySelectionColor
+//           dateLabel.font = options.font
+//           weekdayLabel.font = options.font
+//       }
   }
   
   override func setPagingItem(_ pagingItem: PagingItem, selected: Bool, options: PagingOptions) {
@@ -100,13 +100,13 @@ class CalendarPagingCell: PagingCell {
 
     if let attributes = layoutAttributes as? PagingCellLayoutAttributes {
       dateLabel.textColor = UIColor.interpolate(
-        from: options.textColor,
-        to: options.selectedTextColor,
+        from: ThemeManager.currentTheme().DaySelectionColor,
+        to: ThemeManager.currentTheme().DaySelectionColor,
         with: attributes.progress)
       
       weekdayLabel.textColor = UIColor.interpolate(
-        from: options.textColor,
-        to: options.selectedTextColor,
+        from: ThemeManager.currentTheme().DaySelectionColor,
+        to: ThemeManager.currentTheme().DaySelectionColor,
         with: attributes.progress)
     }
   }

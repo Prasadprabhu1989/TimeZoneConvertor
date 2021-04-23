@@ -254,13 +254,17 @@ class TimeZoneHelperModel {
         return day
     }
     
-    func getSelectedHourIndex(_ date: Date) -> Int {
+    func getSelectedHourIndex(_ date: Date, offsetDay: Int = 0, offsetHour: Int = 0 ) -> Int {
         guard let homeTimeZone = fetchCurrentHomeTimeZone(),
             let timezoneString = homeTimeZone.timeZone,
             let timezone = TimeZone(identifier: timezoneString) else { return -1 }
+        var currentDateTime = date
+        if offsetHour != 0 || offsetDay != 0 {
+            currentDateTime = currentDateTime.setTime(offsetDay, offsetHour, timezone) ?? date
+        }
         
-        let selectedHour = set(from: date, format: HoursStyle.onlyHour.rawValue, timeZone: timezone)
-        let dateCeild = date.nearestHour() ?? date
+        let selectedHour = set(from: currentDateTime, format: HoursStyle.onlyHour.rawValue, timeZone: timezone)
+        let dateCeild = currentDateTime.nearestHour() ?? currentDateTime
         let minute = set(from: dateCeild, format: HoursStyle.onlyMinute.rawValue, timeZone: timezone)
         let minuteIndex = (Int(minute) ?? 0)/30
         let selectedIndex = ((Int(selectedHour) ?? 0) * 2) + minuteIndex

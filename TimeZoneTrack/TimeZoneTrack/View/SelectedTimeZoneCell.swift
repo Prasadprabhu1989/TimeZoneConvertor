@@ -24,6 +24,10 @@ class SelectedTimeZoneCell: UITableViewCell {
     @IBOutlet weak var homeTimeZoneButton: UIButton!
     @IBOutlet weak var timeDiffrenceLabel: UILabel!
     @IBOutlet weak var amOrpmLabel: UILabel!
+  
+    @IBOutlet weak var trailingTimeLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingAmPmLabelConstraint: NSLayoutConstraint!
+    
     
     var timeZoneHelperModel = TimeZoneHelperModel()
     let theme = ThemeManager.currentTheme()
@@ -31,9 +35,8 @@ class SelectedTimeZoneCell: UITableViewCell {
     weak var homeTimeZoneButtonClickedDelegate: HomeTimeZoneButtonClickedDelegate?
     var currentDateTime: Date!
     
-    func updateUI(with date: Date, selectedTimeZone: SelectedTimeZone, hourStyle: HoursStyle, offsetHour: Int = 0, offsetDay: Int = 0) {
+    func updateUI(with date: Date, selectedTimeZone: SelectedTimeZone, hourStyle: HoursStyle, offsetHour: Int = 0, offsetDay: Int = 0, isLocalTimeZoneNameShown: Bool = false) {
          setThemes()
-        let timeInterval = TimeInterval()
         
         if let cityName = selectedTimeZone.name {
             cityNameLabel.text = cityName.capitalized
@@ -49,14 +52,9 @@ class SelectedTimeZoneCell: UITableViewCell {
                 currentDateTime = date
             }
             
-         
-            // DayLightSave-TODO
-            //            timeInterval = timeZoneHelperModel.checkDayLightSaving(currentDateTime, timezone)
-            //            currentDateTime = currentDateTime.addingTimeInterval(timeInterval)
-            
            // print(currentDateTime)
             let timeString = timeZoneHelperModel.set(from: currentDateTime, format: hourStyle.rawValue, timeZone: timezone)
-            let dayType = timeZoneHelperModel.getDay(date: currentDateTime,timeZone:timezone)
+            let dayType = timeZoneHelperModel.getDay(date: currentDateTime, timeZone: timezone)
             debugPrint("dayType \(dayType)")
            
             if dayType == .Night{
@@ -65,24 +63,30 @@ class SelectedTimeZoneCell: UITableViewCell {
             else{
                 dayTypeImageView.image = #imageLiteral(resourceName:"Day")
             }
-             dayTypeImageView.tint(color: UIColor.white)
-            
+             
+            dayTypeImageView.tint(color: ThemeManager.currentTheme().DaySelectionColor)
             
             if hourStyle == .twelveHour {
                 let arrayOfTime = timeString.components(separatedBy: " ")
                 if arrayOfTime.count > 1 {
                     cityTimeLabel.text = arrayOfTime.first ?? ""
                     amOrpmLabel.text = arrayOfTime[1]
+
                 } else {
                    cityTimeLabel.text = timeString
                    amOrpmLabel.text = ""
+
                 }
             } else {
                 cityTimeLabel.text = timeZoneHelperModel.set(from: currentDateTime, format: hourStyle.rawValue, timeZone: timezone)
                 amOrpmLabel.text = ""
+
             }
             cityDateLabel.text = timeZoneHelperModel.set(from: currentDateTime, format: DateDisplayStyle.weekmonthday.rawValue, timeZone: timezone )
-            localTimeZoneLabel.text = timezone.localizedName(for: .standard, locale: .current) ?? ""
+            if isLocalTimeZoneNameShown {
+                localTimeZoneLabel.text = timezone.localizedName(for: .standard, locale: .current) ?? ""
+            }
+            
         }
         
         if selectedTimeZone.homeTimeZone {
@@ -96,8 +100,7 @@ class SelectedTimeZoneCell: UITableViewCell {
                 let homeTimezone = TimeZone(identifier: homeCityTimeZone),
                 let cityTimeZone = selectedTimeZone.timeZone,
                 let timezone = TimeZone(identifier: cityTimeZone) {
-                timeDiffrenceLabel.text = timeDiffrenceBetween(timeOffset1: timezone.offset() + Int(timeInterval), timeOffset2: homeTimezone.offset())
-                
+                timeDiffrenceLabel.text = timeDiffrenceBetween(timeOffset1: timezone.offset(currentDateTime) , timeOffset2: homeTimezone.offset(currentDateTime))
             } else {
                 timeDiffrenceLabel.text = ""
             }
@@ -120,28 +123,18 @@ class SelectedTimeZoneCell: UITableViewCell {
         super.awakeFromNib()
 
        setThemes()
-         //setBorder()
     }
+    
     func setThemes(){
-        contentView.backgroundColor = ThemeManager.currentTheme().backgroundColor
+        contentView.backgroundColor = ThemeManager.currentTheme().tableviewCellBackgroundColor
         cityNameLabel.textColor = ThemeManager.currentTheme().titleTextColor
         cityTimeLabel.textColor = ThemeManager.currentTheme().titleTextColor
-               amOrpmLabel.textColor = ThemeManager.currentTheme().titleTextColor
-               cityDateLabel.textColor = ThemeManager.currentTheme().titleTextColor
-               localTimeZoneLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
-               timeDiffrenceLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
-    }
-    func setBorder(){
-       
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.masksToBounds = true
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 1.0
-        self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect:self.bounds, cornerRadius:self.layer.cornerRadius).cgPath
+        amOrpmLabel.textColor = ThemeManager.currentTheme().titleTextColor
+        cityDateLabel.textColor = ThemeManager.currentTheme().titleTextColor
+        if let locatioTimeZoneLabel = localTimeZoneLabel {
+            locatioTimeZoneLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
+        }
+        timeDiffrenceLabel.textColor = ThemeManager.currentTheme().subtitleTextColor
         
     }
 }

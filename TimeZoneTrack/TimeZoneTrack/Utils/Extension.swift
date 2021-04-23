@@ -69,8 +69,8 @@ extension TimeZone {
         return localTimeZoneFormatter.string(from: date)
     }
 
-    func offset() -> Int {
-       return Int(self.secondsFromGMT())
+    func offset(_ date: Date) -> Int {
+       return Int(self.secondsFromGMT(for: date))
     }
     
 }

@@ -101,11 +101,11 @@ extension CalendarViewController: PagingViewControllerDelegate {
       _ pagingViewController: PagingViewController,
       didSelectItem pagingItem: PagingItem) {
         let calendarItem = pagingItem as! CalendarItem
-        let formattedDate = DateFormatters.shortDateFormatter.string(from: calendarItem.date)
-        let yyyymmddDateString = DateFormatters.yyyyMMddDateFormatter.string(from: calendarItem.date)
-        let yyyymmddDate = DateFormatters.yyyyMMddDateFormatter.date(from: yyyymmddDateString)
+        let formattedDate = DateFormatters.MMMMYYYYDateFormatter.string(from: calendarItem.date)
+        let shortDateString = DateFormatters.shortDateFormatter.string(from: calendarItem.date)
+        let shortDate = DateFormatters.shortDateFormatter.date(from: shortDateString)
         print(formattedDate, calendarItem.date)
-        dateUpdateDelegate?.updatedDate(formattedDate, yyyymmddDate)
+        dateUpdateDelegate?.updatedDate(formattedDate, shortDate)
         
     }
 }

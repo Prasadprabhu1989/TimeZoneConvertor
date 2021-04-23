@@ -37,7 +37,8 @@ class CalendarPickerViewController: UIViewController {
   private lazy var dimmedBackgroundView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    let color = ThemeManager.currentTheme() == .white ? UIColor.black : UIColor.white
+    view.backgroundColor = color.withAlphaComponent(0.25)
     return view
   }()
 
@@ -222,6 +223,12 @@ class CalendarPickerViewController: UIViewController {
     }
   }
   
+    func applyTheme() {
+//        dimmedBackgroundView.backgroundColor = ThemeManager.currentTheme().calendarPickerBackground.withAlphaComponent(0.3)
+        collectionView.backgroundColor = ThemeManager.currentTheme().calendarPickerBackground
+        yearCollectionView.backgroundColor = ThemeManager.currentTheme().calendarPickerBackground
+    }
+    
   func updateSelectedYear() {
     year = Calendar.current.component(.year, from: baseDate)
 //    currentMonth = Calendar.current.component(.month, from: baseDate)
@@ -249,6 +256,7 @@ class CalendarPickerViewController: UIViewController {
   
     generateYears()
     updateSelectedYear()
+    applyTheme()
     
     var constraints = [
       dimmedBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -270,7 +278,7 @@ class CalendarPickerViewController: UIViewController {
       //3
       collectionView.heightAnchor.constraint(
         equalTo: view.heightAnchor,
-        multiplier: 0.5)
+        multiplier: 0.4)
     ])
     
     constraints.append(contentsOf: [
@@ -283,10 +291,16 @@ class CalendarPickerViewController: UIViewController {
       yearCollectionView.centerYAnchor.constraint(
         equalTo: view.centerYAnchor,
         constant: 10),
+      yearCollectionView.topAnchor.constraint(
+      equalTo: headerView.bottomAnchor,
+      constant: -25),
+      yearCollectionView.bottomAnchor.constraint(
+      equalTo: footerView.topAnchor,
+      constant: 25)
       //3
-      yearCollectionView.heightAnchor.constraint(
-        equalTo: view.heightAnchor,
-        multiplier: 0.5)
+//      yearCollectionView.heightAnchor.constraint(
+//        equalTo: view.heightAnchor,
+//        multiplier: 0.4)
     ])
 
     constraints.append(contentsOf: [
@@ -477,9 +491,9 @@ extension CalendarPickerViewController: UICollectionViewDataSource {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YearCell.reuseIdentifierYearCell, for: indexPath) as! YearCell
       cell.lblYear.text = "\(arrYears[indexPath.row])"
       if indexPath.row == currentYearIndex?.row {
-        cell.lblYear.textColor = UIColor.systemRed
+        cell.lblYear.textColor = ThemeManager.headerBlue
       } else {
-        cell.lblYear.textColor = UIColor.black
+        cell.lblYear.textColor = ThemeManager.currentTheme().calendarPickerDayMonthLabelColor
       }
    return cell
     } else {
@@ -510,7 +524,9 @@ extension CalendarPickerViewController: UICollectionViewDelegateFlowLayout {
       yearCollectionView.reloadData()
     } else {
       let day = days[indexPath.row]
-      selectedDateChanged(day.date)
+        let dateString = DateFormatters.shortDateFormatter.string(from: day.date)
+        let date = DateFormatters.shortDateFormatter.date(from: dateString) ?? day.date
+        selectedDateChanged(date)
       dismiss(animated: true, completion: nil)
     }
   }

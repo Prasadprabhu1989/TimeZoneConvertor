@@ -36,7 +36,7 @@ class CalendarPickerFooterView: UIView {
   lazy var separatorView: UIView = {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+    //view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
     return view
   }()
 
@@ -45,7 +45,7 @@ class CalendarPickerFooterView: UIView {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
     button.titleLabel?.textAlignment = .left
-    button.setTitleColor(.black, for: .normal)
+   // button.setTitleColor(ThemeManager.headerBlue, for: .normal)
 //    if #available(iOS 13.0, *) {
 //        if let chevronImage = UIImage(systemName: "chevron.left.circle.fill") {
 //            let imageAttachment = NSTextAttachment(image: chevronImage)
@@ -79,7 +79,7 @@ class CalendarPickerFooterView: UIView {
     button.translatesAutoresizingMaskIntoConstraints = false
     button.titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
     button.titleLabel?.textAlignment = .right
-    button.setTitleColor(.black, for: .normal)
+  //  button.setTitleColor(ThemeManager.headerBlue, for: .normal)
 //    if #available(iOS 13.0, *) {
 //        if let chevronImage = UIImage(systemName: "chevron.right.circle.fill") {
 //            let imageAttachment = NSTextAttachment(image: chevronImage)
@@ -115,7 +115,7 @@ class CalendarPickerFooterView: UIView {
     super.init(frame: CGRect.zero)
 
     translatesAutoresizingMaskIntoConstraints = false
-    backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+//    backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
 
     layer.maskedCorners = [
       .layerMinXMaxYCorner,
@@ -129,6 +129,7 @@ class CalendarPickerFooterView: UIView {
     addSubview(separatorView)
     addSubview(previousMonthButton)
     addSubview(nextMonthButton)
+    applyTheme()
   }
 
   required init?(coder: NSCoder) {
@@ -173,4 +174,11 @@ class CalendarPickerFooterView: UIView {
   @objc func didTapNextMonthButton() {
     didTapNextMonthCompletionHandler()
   }
+    
+    func applyTheme() {
+        nextMonthButton.setTitleColor(ThemeManager.currentTheme().calendarPickerButtonTitleColor, for: .normal)
+        previousMonthButton.setTitleColor(ThemeManager.currentTheme().calendarPickerButtonTitleColor, for: .normal)
+        backgroundColor = ThemeManager.currentTheme().calendarPickerBackground
+        separatorView.backgroundColor = ThemeManager.currentTheme().calendarDateOutsideCurrentMonth
+     }
 }

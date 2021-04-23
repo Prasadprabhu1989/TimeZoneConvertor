@@ -38,6 +38,8 @@ class SelectedTimeZoneViewController: UIViewController {
     @IBOutlet weak var emptyTimeZoneLabel: UILabel!
     @IBOutlet weak var addTimeZoneButton: UIButton!
     @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var addTimeZoneView: UIView!
+    @IBOutlet weak var locationTitleLabel: UILabel!
     
     let calendarViewController = CalendarViewController()
     
@@ -88,6 +90,13 @@ class SelectedTimeZoneViewController: UIViewController {
     var dateCalendar: Date?
     var offfsetMonth: Int = 0
     
+    var islocalTimeZoneNameShown = true
+    
+    let calendarBlueIcon = "Calendar-Blue"
+    let calendarWhiteIcon = "Calendar-Blue"//"Calendar-White"
+    let addTimeZoneWhiteIcon = "add-white"
+    let addTimeZoneBlueIcon = "add-blue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,11 +106,11 @@ class SelectedTimeZoneViewController: UIViewController {
         addCalendarChildViewController()
         setUpCollectionView()
         setSelectedDateTimeViewStyle()
-        getInitalCalendarDate()
+        setCalendarDate()
     }
     
-    func getInitalCalendarDate() {
-        let calendarDateString = DateFormatters.yyyyMMddDateFormatter.string(from: Date())
+    func setCalendarDate(_ date: Date = Date()) {
+        let calendarDateString = DateFormatters.yyyyMMddDateFormatter.string(from: date)
         dateCalendar = DateFormatters.yyyyMMddDateFormatter.date(from: calendarDateString)
     }
     
@@ -112,14 +121,19 @@ class SelectedTimeZoneViewController: UIViewController {
         hoursListView.backgroundColor = theme.backgroundColor
         calendarView.backgroundColor = theme.calendarBackgroundColor
         collectionView.backgroundColor = theme.hoursRangeBackgroundColor
-        monthNameView.backgroundColor = theme.backgroundColor
-        separatorLine1View.backgroundColor = theme.seperatorViewColor
-        seperatorLine2View.backgroundColor = theme.seperatorViewColor
-        seperatorLine3View.backgroundColor = theme.seperatorViewColor
+        monthNameView.backgroundColor = theme.tableviewCellBackgroundColor
+        separatorLine1View.backgroundColor = theme.seperatorViewColor.withAlphaComponent(0.5)
+        seperatorLine2View.backgroundColor = theme.seperatorViewColor.withAlphaComponent(0.5)
+        seperatorLine3View.backgroundColor = theme.seperatorViewColor.withAlphaComponent(0.5)
+        addTimeZoneView.backgroundColor = theme.tableviewCellBackgroundColor
         emptyTimeZoneView.backgroundColor = theme.backgroundColor
         monthLabel.textColor = theme.titleTextColor
         emptyTimeZoneLabel.textColor = theme.titleTextColor
-        
+        locationTitleLabel.textColor = theme.titleTextColor
+        let calendarSelectionImageName = theme == .white ? calendarBlueIcon : calendarWhiteIcon
+        calendarButton.setImage(UIImage(named: calendarSelectionImageName), for: .normal)
+        updateAddtimeZoneButton()
+        timeListTableView.separatorColor = theme.seperatorViewColor
     }
     
     func setUpTableView() {
@@ -138,6 +152,14 @@ class SelectedTimeZoneViewController: UIViewController {
         timeListTableView.reorder.shadowOpacity = 0.5
         timeListTableView.reorder.shadowRadius = 20
         timeListTableView.reorder.shadowOffset = CGSize(width: 0, height: 10)
+    }
+    
+    func updateAddtimeZoneButton() {
+        addTimeZoneButton.backgroundColor = theme == .white ? UIColor.white : theme.navigationBarTint
+         addTimeZoneButton.layer.borderWidth = 2.0
+         addTimeZoneButton.layer.borderColor = theme == .white ? theme.navigationBarTint.cgColor : UIColor.clear.cgColor
+         let addLocationImageName = theme == .white ? addTimeZoneBlueIcon : addTimeZoneWhiteIcon
+         addTimeZoneButton.setImage(UIImage(named: addLocationImageName), for: .normal)
     }
     
     func setUpCollectionView() {
@@ -182,7 +204,7 @@ class SelectedTimeZoneViewController: UIViewController {
         fetchSelectedTimeZone()
         hoursRangeArray = timeZoneHelperModel?.getHoursArray(hoursStyle) ?? []
         fetchSelectedHourFromCurrentDateTime()
-        monthYearString = DateFormatters.shortDateFormatter.string(from: currentDateTime)
+        monthYearString = DateFormatters.MMMMYYYYDateFormatter.string(from: currentDateTime)
         self.monthLabel.text = monthYearString
     }
     
@@ -201,7 +223,7 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     func fetchSelectedHourFromCurrentDateTime() {
-        selectedHourIndex = timeZoneHelperModel?.getSelectedHourIndex(currentDateTime) ?? selectedHourIndex
+        selectedHourIndex = timeZoneHelperModel?.getSelectedHourIndex(currentDateTime, offsetDay: offsetDay, offsetHour: offsetHour) ?? selectedHourIndex
         selectedHourIndexOffset = selectedHourIndex
     }
     @IBAction func hoursStyleSwitchValueChanged(_ sender: UISwitch) {
@@ -233,12 +255,45 @@ class SelectedTimeZoneViewController: UIViewController {
     }
     
     @IBAction func calendarClicked(_ sender: UIButton) {
+        
+//        let datePickerController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DatePickerController") as? DatePickerController
+//          guard let dateController = datePickerController else{
+//              return
+//          }
+//          dateController.modalPresentationStyle = .overCurrentContext
+//          dateController.selectedDate = dateCalendar!
+//          dateController.selectedDateChanged = { [weak self] dateSelected in
+//
+//            guard let self = self else { return }
+//
+//            let dateString = DateFormatters.shortDateFormatter.string(from: self.currentDateTime)
+//            let date = DateFormatters.shortDateFormatter.date(from: dateString)
+//
+//            self.offsetDay = Calendar.current.dateComponents([.day], from: date! , to: dateSelected ).day ?? 0
+//            self.dateCalendar = Calendar.current.date(byAdding: .day, value: self.offsetDay, to: self.currentDateTime)
+//            self.calendarViewController.setSelectedDate(self.dateCalendar ?? dateSelected)
+//            self.monthYearString = DateFormatters.MMMMYYYYDateFormatter.string(from: dateSelected)
+//            self.timeListTableView.reloadData()
+//            self.fetchSelectedHourFromCurrentDateTime()
+//            self.reloadHoursCollection()
+//
+//        }
+//          present(dateController, animated: true, completion: nil)
         let pickerController = CalendarPickerViewController(
-          baseDate: currentDateTime,
-          selectedDateChanged: { [weak self] date in
+            baseDate: dateCalendar!,
+          selectedDateChanged: { [weak self] dateSelected in
           guard let self = self else { return }
 
-          
+            let dateString = DateFormatters.shortDateFormatter.string(from: self.currentDateTime)
+            let date = DateFormatters.shortDateFormatter.date(from: dateString)
+
+            self.offsetDay = Calendar.current.dateComponents([.day], from: date! , to: dateSelected ).day ?? 0
+            self.dateCalendar = Calendar.current.date(byAdding: .day, value: self.offsetDay, to: self.currentDateTime)
+            self.calendarViewController.setSelectedDate(self.dateCalendar ?? dateSelected)
+            self.monthYearString = DateFormatters.MMMMYYYYDateFormatter.string(from: dateSelected)
+            self.timeListTableView.reloadData()
+            self.fetchSelectedHourFromCurrentDateTime()
+            self.reloadHoursCollection()
           })
 
         present(pickerController, animated: true, completion: nil)
@@ -266,6 +321,7 @@ class SelectedTimeZoneViewController: UIViewController {
             let settingsController = nav.viewControllers[0] as? SettingsViewController
             guard let settingsVC = settingsController  else { return }
             settingsVC.hoursStyle = self.hoursStyle
+            settingsVC.isTimeZoneOn = islocalTimeZoneNameShown
             settingsVC.completionHandler = { [weak self](hoursStyle) in
                 self?.hoursStyle = hoursStyle!
                 
@@ -281,6 +337,12 @@ class SelectedTimeZoneViewController: UIViewController {
                 self?.collectionView.reloadData()
                 self?.timeListTableView.reloadData()
                 
+            }
+            settingsVC.timeZoneToggle = { [weak self] isTimeZoneOn in
+                guard let self = self else { return }
+               
+                self.islocalTimeZoneNameShown = isTimeZoneOn
+                self.timeListTableView.reloadData()
             }
             
         }
@@ -324,12 +386,14 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
             return spacer
         }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SelectedTimeZoneCell", for: indexPath) as? SelectedTimeZoneCell else {
+        let cellIdentifier = islocalTimeZoneNameShown ? "SelectedTimeZoneCell" : "SelectedWithoutLocalTimezoneCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectedTimeZoneCell else {
             //            print("Cell not exists in storyboard")
             return UITableViewCell()
         }
         
-        cell.updateUI(with: currentDateTime, selectedTimeZone: timeZoneArray[indexPath.row], hourStyle: hoursStyle, offsetHour: offsetHour, offsetDay: offsetDay)
+        cell.updateUI(with: currentDateTime, selectedTimeZone: timeZoneArray[indexPath.row], hourStyle: hoursStyle, offsetHour: offsetHour, offsetDay: offsetDay, isLocalTimeZoneNameShown: islocalTimeZoneNameShown)
         cell.homeTimeZoneButtonClickedDelegate = self
         return cell
     }
@@ -399,11 +463,17 @@ extension SelectedTimeZoneViewController: UITableViewDataSource {
 extension SelectedTimeZoneViewController: DateSelectedDelegate {
     func updatedDate(_ monthYear: String, _ date: Date?) {
         monthYearString = monthYear
-        guard let dateCalendar = dateCalendar, let dateSelected = date else {
+        guard let dateSelected = date else {
             return
         }
-        offsetDay = Calendar.current.dateComponents([.day], from: dateCalendar , to: dateSelected ).day ?? 0
+       
+        let dateString = DateFormatters.shortDateFormatter.string(from: self.currentDateTime)
+        let date = DateFormatters.shortDateFormatter.date(from: dateString)
+        
+        offsetDay = Calendar.current.dateComponents([.day], from: date! , to: dateSelected ).day ?? 0
+        self.dateCalendar = dateSelected
         timeListTableView.reloadData()
+   
     }
     
     
@@ -475,7 +545,8 @@ extension SelectedTimeZoneViewController: RefreshViewOnHomeTimeZoneChangeDelegat
         fetchSelectedTimeZone()
         fetchSelectedHourFromCurrentDateTime()
         reloadHoursCollection()
-        monthYearString = DateFormatters.shortDateFormatter.string(from: currentDateTime)
+        monthYearString = DateFormatters.MMMMYYYYDateFormatter.string(from: currentDateTime)
+        setCalendarDate(currentDateTime)
     }
 }
 

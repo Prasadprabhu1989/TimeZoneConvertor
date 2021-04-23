@@ -34,7 +34,7 @@ class AddTimeZoneViewController: UIViewController {
     func applyThemeStyle() {
         self.view.backgroundColor = theme.backgroundColor
         tableView.backgroundColor = theme.tableViewBackGroundColor
-        searchBar.backgroundColor = theme.selectedRangeColor
+        searchBar.barTintColor = theme == .black ? UIColor.black.withAlphaComponent(0.3) : theme.backgroundColor
     }
     
     func setUpTableView() {

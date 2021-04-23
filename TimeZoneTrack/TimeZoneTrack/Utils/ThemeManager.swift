@@ -64,7 +64,7 @@ enum Theme: Int {
         case .theme4:
             return UIColor(red: 42/255, green: 45/255, blue: 73/255, alpha: 1.0)
         case .white:
-            return .white
+            return UIColor(red: 239/255, green: 240/255, blue: 244/255, alpha: 1.0)
         case .black:
             return .black
         }
@@ -72,7 +72,7 @@ enum Theme: Int {
     var calendarBackgroundColor: UIColor {
            switch self {
            case .theme1:
-               return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+               return UIColor(red: 73/255, green: 73/255, blue: 84/255, alpha: 1.0)
            case .theme2:
                return UIColor(red: 19/255, green: 25/255, blue: 50/255, alpha: 1.0)
            case .theme3:
@@ -83,6 +83,23 @@ enum Theme: Int {
                 return UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
            case .black:
               return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+        }
+       }
+    
+    var tableviewCellBackgroundColor: UIColor {
+           switch self {
+           case .theme1:
+               return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+           case .theme2:
+               return UIColor(red: 19/255, green: 25/255, blue: 50/255, alpha: 1.0)
+           case .theme3:
+               return UIColor(red: 49/255, green: 44/255, blue: 81/255, alpha: 1.0)
+           case .theme4:
+               return UIColor(red: 42/255, green: 45/255, blue: 73/255, alpha: 1.0)
+           case .white:
+               return UIColor.white
+           case .black:
+              return .black
         }
        }
     
@@ -112,7 +129,8 @@ enum Theme: Int {
         case .theme4:
             return UIColor(red: 43/255, green: 79/255, blue: 96/255, alpha: 1.0)
         case .white:
-            return UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+            //return UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+            return UIColor.white
             case .black:
             return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
         }
@@ -129,9 +147,9 @@ enum Theme: Int {
         case .theme4:
             return UIColor.darkGray
         case .white:
-            return .black
+            return UIColor.lightGray
         case .black:
-            return .white
+            return UIColor.darkGray
         }
         
     }
@@ -147,7 +165,7 @@ enum Theme: Int {
         case .theme4:
             return UIColor(red: 82/255, green: 52/255, blue: 73/255, alpha: 0.5)
         case .white:
-            return .white
+            return UIColor(red: 239/255, green: 240/255, blue: 244/255, alpha: 1.0)
         case .black:
             return .black
         }
@@ -164,7 +182,7 @@ enum Theme: Int {
         case .theme4:
             return UIColor.white
         case .white:
-            return .black
+            return UIColor.black
         case .black:
             return .white
         }
@@ -181,9 +199,9 @@ enum Theme: Int {
         case .theme4:
             return UIColor.lightGray
         case .white:
-            return .black
+            return .darkGray
         case .black:
-            return .white
+            return .lightGray
         }
         
     }
@@ -201,7 +219,7 @@ enum Theme: Int {
         case .theme4:
             return UIColor(red: 218/255, green: 114/255, blue: 60/255, alpha: 0.4)
         case .white:
-            return .black
+            return UIColor(red: 218/255, green: 114/255, blue: 60/255, alpha: 0.4)
         case .black:
             return .white
         }
@@ -252,7 +270,7 @@ enum Theme: Int {
         case .theme4:
             return UIColor.white
         case .white:
-               return UIColor.black
+               return UIColor.lightGray
         case .black:
             return .white
         }
@@ -265,6 +283,92 @@ enum Theme: Int {
        @unknown default:
         return .white
         }
+    }
+
+    var calendarPickerBackground: UIColor {
+        switch self {
+        case .theme1:
+            return UIColor(red: 58/255, green: 58/255, blue: 71/255, alpha: 1.0)
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+        case .black:
+            return UIColor.black
+        }
+    }
+
+    var calendarPickerDayMonthLabelColor: UIColor {
+        switch self {
+        case .theme1:
+            return UIColor.white
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor.black
+        case .black:
+            return UIColor.white
+        }
+    }
+
+    var calendarPickerButtonTitleColor: UIColor {
+        switch self {
+        case .theme1:
+            return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
+        case .black:
+            return UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
+        }
+    }
+
+    var calendarPickerCloseButtonColor: UIColor {
+        switch self {
+        case .theme1:
+            return UIColor.white
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor(red: 0.23529411764705882, green: 0.23529411764705882, blue: 0.2627450980392157, alpha: 0.6)
+        case .black:
+            return UIColor.white
+        }
+    }
+    
+    var calendarDateOutsideCurrentMonth : UIColor {
+        switch self {
+        case .theme1:
+            return UIColor.lightGray.withAlphaComponent(0.4)
+        case .theme2:
+            return UIColor.white
+        case .theme3:
+            return UIColor.white
+        case .theme4:
+            return UIColor.white
+        case .white:
+               return UIColor(red: 0.23529411764705882, green: 0.23529411764705882, blue: 0.2627450980392157, alpha: 0.4)
+        case .black:
+            return UIColor.lightGray.withAlphaComponent(0.4)
+        }
+        
     }
 }
 
@@ -296,4 +400,6 @@ class ThemeManager {
         UINavigationBar.appearance().barTintColor = theme.navigationBarTint
         UINavigationBar.appearance().isTranslucent = theme.isTransulent
     }
+    
+    static let headerBlue = UIColor(red: 27/255, green: 79/255, blue: 174/255, alpha: 1.0)
 }

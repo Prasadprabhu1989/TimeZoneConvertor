@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-calendar-50.png",
+      "filename" : "add-blue@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "add-blue@2x.png",
       "scale" : "2x"
     },
     {

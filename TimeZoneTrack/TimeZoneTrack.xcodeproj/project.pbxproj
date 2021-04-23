@@ -89,6 +89,7 @@
 		59694CCC262E9D6E003EF610 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CC9262E9D6E003EF610 /* ChecklistItem.swift */; };
 		59694CCD262E9D6E003EF610 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CCA262E9D6E003EF610 /* Day.swift */; };
 		59694CCE262E9D6E003EF610 /* MonthMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59694CCB262E9D6E003EF610 /* MonthMetadata.swift */; };
+		598162A32630619E00C8D152 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598162A22630619E00C8D152 /* DatePickerController.swift */; };
 		599098902615D59C004B9A02 /* PageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5990988F2615D59C004B9A02 /* PageFlowLayout.swift */; };
 		599098922615D600004B9A02 /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599098912615D600004B9A02 /* HourCell.swift */; };
 		5995A8C42624AB99006CB456 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5995A8BE2624AB99006CB456 /* Lato-Italic.ttf */; };
@@ -107,11 +108,12 @@
 		59E98B2F260CB379007F3194 /* TimeZone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59E98B2D260CB379007F3194 /* TimeZone.xcdatamodeld */; };
 		59E98B31260CB434007F3194 /* TimeZoneHelperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E98B30260CB434007F3194 /* TimeZoneHelperModel.swift */; };
 		59E98B33260CB907007F3194 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E98B32260CB907007F3194 /* CoreDataManager.swift */; };
+		59EE065A26317826007300BD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE065926317826007300BD /* SettingsViewController.swift */; };
+		59EE065C26317850007300BD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE065B26317850007300BD /* AboutViewController.swift */; };
 		59EE8F2D260DB645005E4610 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F2C260DB644005E4610 /* TimeTracker.swift */; };
 		59EE8F2F260DB9A3005E4610 /* AddTimeZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F2E260DB9A3005E4610 /* AddTimeZoneViewController.swift */; };
 		59EE8F31260DBA76005E4610 /* SelectedTimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EE8F30260DBA76005E4610 /* SelectedTimeZoneCell.swift */; };
 		5FEF6E4C2629650000FD310A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FEF6E4B262964FF00FD310A /* Settings.storyboard */; };
-		5FEF6E4E262965B300FD310A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEF6E4D262965B300FD310A /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +200,7 @@
 		59694CC9262E9D6E003EF610 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		59694CCA262E9D6E003EF610 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		59694CCB262E9D6E003EF610 /* MonthMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthMetadata.swift; sourceTree = "<group>"; };
+		598162A22630619E00C8D152 /* DatePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
 		5990988F2615D59C004B9A02 /* PageFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFlowLayout.swift; sourceTree = "<group>"; };
 		599098912615D600004B9A02 /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = "<group>"; };
 		5995A8B92624AB99006CB456 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
@@ -218,11 +221,12 @@
 		59E98B2E260CB379007F3194 /* TimeZone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeZone.xcdatamodel; sourceTree = "<group>"; };
 		59E98B30260CB434007F3194 /* TimeZoneHelperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneHelperModel.swift; sourceTree = "<group>"; };
 		59E98B32260CB907007F3194 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		59EE065926317826007300BD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		59EE065B26317850007300BD /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		59EE8F2C260DB644005E4610 /* TimeTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		59EE8F2E260DB9A3005E4610 /* AddTimeZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeZoneViewController.swift; sourceTree = "<group>"; };
 		59EE8F30260DBA76005E4610 /* SelectedTimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTimeZoneCell.swift; sourceTree = "<group>"; };
 		5FEF6E4B262964FF00FD310A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		5FEF6E4D262965B300FD310A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,13 +388,13 @@
 		59694CBB262E9D54003EF610 /* CalendarPicker */ = {
 			isa = PBXGroup;
 			children = (
-				59694CC8262E9D6E003EF610 /* Models */,
-				59694CBC262E9D54003EF610 /* CalendarPickerFooterView.swift */,
 				59694CBD262E9D54003EF610 /* CalendarPickerViewController.swift */,
-				59694CBE262E9D54003EF610 /* CalendarDateCollectionViewCell.swift */,
 				59694CBF262E9D54003EF610 /* CalendarPickerHeaderView.swift */,
+				59694CBC262E9D54003EF610 /* CalendarPickerFooterView.swift */,
+				59694CBE262E9D54003EF610 /* CalendarDateCollectionViewCell.swift */,
 				59694CC0262E9D54003EF610 /* YearCell.swift */,
 				59694CC1262E9D54003EF610 /* YearCell.xib */,
+				59694CC8262E9D6E003EF610 /* Models */,
 			);
 			path = CalendarPicker;
 			sourceTree = "<group>";
@@ -417,6 +421,7 @@
 		59B15A6F260E12E100A8A1E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				598162A22630619E00C8D152 /* DatePickerController.swift */,
 				59E98B1D260CB361007F3194 /* SelectedTimeZoneViewController.swift */,
 				59EE8F30260DBA76005E4610 /* SelectedTimeZoneCell.swift */,
 				59EE8F2E260DB9A3005E4610 /* AddTimeZoneViewController.swift */,
@@ -426,7 +431,8 @@
 				590AF1272615B66D000D5D4D /* ContentViewController.swift */,
 				590AF1222615B4E2000D5D4D /* DateFormatters.swift */,
 				599098912615D600004B9A02 /* HourCell.swift */,
-				5FEF6E4D262965B300FD310A /* SettingsViewController.swift */,
+				59EE065926317826007300BD /* SettingsViewController.swift */,
+				59EE065B26317850007300BD /* AboutViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -607,7 +613,6 @@
 				59E98B1E260CB361007F3194 /* SelectedTimeZoneViewController.swift in Sources */,
 				590AF1042615B358000D5D4D /* PagingMenuItemSource.swift in Sources */,
 				590AF0FA2615B358000D5D4D /* InvalidationState.swift in Sources */,
-				5FEF6E4E262965B300FD310A /* SettingsViewController.swift in Sources */,
 				590AF1192615B358000D5D4D /* PageViewManagerDataSource.swift in Sources */,
 				59075DAB26299FE100C9511C /* ReorderController.swift in Sources */,
 				590AF0ED2615B358000D5D4D /* PagingSizeCache.swift in Sources */,
@@ -634,6 +639,7 @@
 				590AF1292615B66D000D5D4D /* ContentViewController.swift in Sources */,
 				590AF0FD2615B358000D5D4D /* PageViewState.swift in Sources */,
 				590AF10A2615B358000D5D4D /* PagingDiff.swift in Sources */,
+				59EE065A26317826007300BD /* SettingsViewController.swift in Sources */,
 				590AF0FB2615B358000D5D4D /* PagingMenuTransition.swift in Sources */,
 				590AF1112615B358000D5D4D /* PageView.swift in Sources */,
 				590AF1142615B358000D5D4D /* Tween.swift in Sources */,
@@ -654,6 +660,7 @@
 				590AF1072615B358000D5D4D /* UIEdgeInsets.swift in Sources */,
 				590AF1122615B358000D5D4D /* PagingMenuDataSource.swift in Sources */,
 				59EE8F2F260DB9A3005E4610 /* AddTimeZoneViewController.swift in Sources */,
+				598162A32630619E00C8D152 /* DatePickerController.swift in Sources */,
 				590AF0E92615B358000D5D4D /* PagingController.swift in Sources */,
 				59075DAD26299FE100C9511C /* ReorderController+DestinationRow.swift in Sources */,
 				590AF1152615B358000D5D4D /* PagingItem.swift in Sources */,
@@ -664,6 +671,7 @@
 				59EE8F2D260DB645005E4610 /* TimeTracker.swift in Sources */,
 				590AF11E2615B358000D5D4D /* PagingMenuDelegate.swift in Sources */,
 				590AF1212615B38F000D5D4D /* CalendarViewController.swift in Sources */,
+				59EE065C26317850007300BD /* AboutViewController.swift in Sources */,
 				59E98B1C260CB361007F3194 /* SceneDelegate.swift in Sources */,
 				590AF1162615B358000D5D4D /* PageViewControllerDataSource.swift in Sources */,
 				59694CCC262E9D6E003EF610 /* ChecklistItem.swift in Sources */,

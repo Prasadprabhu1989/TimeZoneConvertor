@@ -37,7 +37,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     let view = UIView()
     view.translatesAutoresizingMaskIntoConstraints = false
     view.clipsToBounds = true
-    view.backgroundColor = .systemRed
+    view.backgroundColor = ThemeManager.headerBlue
     return view
   }()
 
@@ -46,7 +46,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.textAlignment = .center
     label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-    label.textColor = .black
+//    label.textColor = .black
     return label
   }()
 
@@ -77,6 +77,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
 
     contentView.addSubview(selectionBackgroundView)
     contentView.addSubview(numberLabel)
+    applyTheme()
   }
 
   required init?(coder: NSCoder) {
@@ -115,6 +116,11 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
 
     layoutSubviews()
   }
+    
+    func applyTheme() {
+        numberLabel.textColor = ThemeManager.currentTheme().calendarPickerDayMonthLabelColor
+    }
+    
 }
 
 // MARK: - Appearance
@@ -144,7 +150,7 @@ private extension CalendarDateCollectionViewCell {
     accessibilityTraits.insert(.selected)
     accessibilityHint = nil
 
-    numberLabel.textColor = isSmallScreenSize ? .systemRed : .white
+    numberLabel.textColor = isSmallScreenSize ? ThemeManager.headerBlue : .white
     selectionBackgroundView.isHidden = isSmallScreenSize
   }
 
@@ -153,7 +159,7 @@ private extension CalendarDateCollectionViewCell {
     accessibilityTraits.remove(.selected)
     accessibilityHint = "Tap to select"
 
-    numberLabel.textColor = isWithinDisplayedMonth ? .black : UIColor(red: 0.23529411764705882, green: 0.23529411764705882, blue: 0.2627450980392157, alpha: 0.6)
+    numberLabel.textColor = isWithinDisplayedMonth ? ThemeManager.currentTheme().calendarPickerDayMonthLabelColor : ThemeManager.currentTheme().calendarDateOutsideCurrentMonth
     selectionBackgroundView.isHidden = true
   }
 }
